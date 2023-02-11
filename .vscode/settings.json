@@ -15,13 +15,13 @@
 		"**/.github": true
 	},
 	"workbench.colorCustomizations": {
-		"titleBar.activeBackground": "#030140", // barra superior
-		"activityBar.background": "#8C7C6D", // barra lateral
-		"statusBar.background": "#cf3554", // barra inferior
-		"activityBar.activeBorder": "#030140", // borde de elemento seleccionado
-		"activityBar.foreground": "#030140", // color de los iconos (activos)
+		"titleBar.activeBackground": "#023373", // barra superior
+		"activityBar.background": "#0388A6", // barra lateral
+		"statusBar.background": "#023373", // barra inferior
+		"activityBar.activeBorder": "#D971C7", // borde de elemento seleccionado
+		"activityBar.foreground": "#D971C7", // color de los iconos (activos)
 		"activityBar.inactiveForeground": "#e7e7e799", // color de los iconos (inactivos)
-		"activityBarBadge.background": "#cf3554", // color de las notificaciones (circulito al lado de icono)
+		"activityBarBadge.background": "#023373", // color de las notificaciones (circulito al lado de icono)
 		"activityBarBadge.foreground": "#e7e7e7", // color de los iconos de las notificaciones
 		"titleBar.activeForeground": "#e7e7e7", // color fuente textos (activos)
 		"titleBar.inactiveForeground": "#e7e7e7", // color fuente textos (inactivos)
