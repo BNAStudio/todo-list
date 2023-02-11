@@ -1,0 +1,37 @@
+{
+	"files.exclude": {
+		"**/node_modules": true,
+		"**/src/*.*": true,
+		"**.eslintignore": true,
+		"**.eslintrc.cjs": true,
+		"**.gitignore": false,
+		"**.prettierignore": true,
+		"**.prettierrc": true,
+		"**/.vscode": false,
+		"**commitlint.config.js": true,
+		"**package-lock.json": true,
+		"**vite.config.js": true,
+		"**yarn.lock": true,
+		"**/.github": true
+	},
+	"workbench.colorCustomizations": {
+		"titleBar.activeBackground": "#030140", // barra superior
+		"activityBar.background": "#8C7C6D", // barra lateral
+		"statusBar.background": "#cf3554", // barra inferior
+		"activityBar.activeBorder": "#030140", // borde de elemento seleccionado
+		"activityBar.foreground": "#030140", // color de los iconos (activos)
+		"activityBar.inactiveForeground": "#e7e7e799", // color de los iconos (inactivos)
+		"activityBarBadge.background": "#cf3554", // color de las notificaciones (circulito al lado de icono)
+		"activityBarBadge.foreground": "#e7e7e7", // color de los iconos de las notificaciones
+		"titleBar.activeForeground": "#e7e7e7", // color fuente textos (activos)
+		"titleBar.inactiveForeground": "#e7e7e7", // color fuente textos (inactivos)
+		"statusBar.foreground": "#e7e7e7" // color fuente textos barra inferior
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"workbench.settings.editor": "json"
+}
