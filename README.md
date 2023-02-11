@@ -43,6 +43,10 @@ Side information: To use the application in a special environment use `lorem ips
 
 ## Collaboration
 
+## Extensions
+
+If you want to see UML diagrams in your VSC, please download the follow extendsion: drawio integration
+
 ---
 
 Give instructions on how to collaborate with your project.
