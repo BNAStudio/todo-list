@@ -1,8 +1,10 @@
 /*  Level 1 - settings */
-@import url("./settings/variables.css");
-@import url("./settings/global.css");
+@import "./settings/variables.scss";
+@import "./settings/global.scss";
 
 /* Level 2 - tools */
+@import "./tools/mixins.scss";
+@import "./tools/functions.scss";
 
 /* Level 3 - generic */
 

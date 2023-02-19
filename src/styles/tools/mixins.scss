@@ -1,0 +1,60 @@
+@mixin gradient_font_color($gradient) {
+	font-family: var(--font-roboto);
+	text-shadow: var(--text-shadow);
+	font-size: max(12px, min(var(--font-size-xl), 27vw));
+	@if $gradient == gradient_purple {
+		color: var(--primary);
+		background: var(--purple-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	} @else if $gradient == gradient_blue {
+		color: var(--complementary);
+		background: var(--blue-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
+@mixin tag_selector($color) {
+	background: var(--medium-dark);
+	width: max-content;
+	color: $color;
+	padding: 5px 10px;
+	font-family: var(--font-raleway);
+	border-radius: 5px;
+}
+
+@mixin text_style($size, $color) {
+	font-family: var(--font-raleway);
+	color: $color;
+	@if $size == h1 {
+		font-size: var(--font-size-l);
+		font-weight: 400;
+	} @else if $size == h2 {
+		font-size: var(--font-size-m);
+	} @else if $size == h3 {
+		font-size: var(--font-size-s);
+		font-weight: 400;
+	} @else if $size == p {
+		font-size: var(--font-size-xs);
+		font-weight: 400;
+	}
+}
+
+/*
+.main-title {
+	@include text_style(h1, var(--light));
+}
+.sub-title {
+	@include text_style(h2, var(--light));
+}
+.text-bold {
+	@include text_style(h3, var(--light));
+}
+.paragraph {
+	@include text_style(p, var(--light));
+}
+.tag-selector {
+	@include tag_selector(var(--alert));
+}
+*/
