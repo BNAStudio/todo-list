@@ -1,0 +1,41 @@
+:root {
+	--primary: #460273;
+	--primary-hover: #5d04d9;
+	--secundary: #1b0140;
+	--secundary-hover: #4703a6;
+	--complementary: #023373;
+	--complementary-hover: #0388a6;
+	--dark: #181818;
+	--medium-dark: #282828;
+	--light: #eee5ff;
+	--medium-light: #9e9d9e;
+	--alert: #ff3333;
+	--contrast: #d971c7;
+
+	--box-shadow: 0px 0px 10px 2px rgba(238, 229, 255, 1);
+
+	--text-shadow: 0px 0px 15px rgba(238, 229, 255, 1);
+	--font-size-xs: 1rem;
+	--font-size-s: 2rem;
+	--font-size-m: 2.5rem;
+	--font-size-l: 3rem;
+	--font-size-xl: 7rem;
+
+	--font-roboto: "Roboto", sans-serif;
+	--font-raleway: "Raleway", sans-serif;
+
+	--blue-gradient: linear-gradient(
+		133deg,
+		rgba(2, 51, 115, 1) 0%,
+		rgba(3, 136, 166, 1) 50%,
+		rgba(238, 229, 255, 1) 90%
+	);
+	--purple-gradient: linear-gradient(
+		140deg,
+		rgba(13, 1, 38, 1) 30%,
+		rgba(2, 51, 115, 1) 70%,
+		rgba(235, 140, 218, 1) 90%
+	);
+
+	--text-shadow: 0px 0px 15px var(--light);
+}
