@@ -2,20 +2,20 @@
 // import { useState } from 'react'
 import { useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
-import css from './Task.module.scss';
+import css from './AddTaskBtn.module.scss';
 
 
 export const AddTaskBtn = () => {
 
     const { openModal, setAddTask } = useContext(ModalContext)
-    const onClickHandle = () => {
+    const onHandleCreate = () => {
         openModal()
         setAddTask(true)
     }
 
     return (
         <>
-            <button onClick={onClickHandle} className={css["add-btn"]}>+</button>
+            <button onClick={onHandleCreate} className={css["add-btn"]}>+</button>
         </>
     )
 }

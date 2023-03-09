@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState, createContext } from "react";
 import { Modal } from "../components/Modal/Modal";
@@ -9,7 +10,10 @@ export const ModalContext = createContext();
 export const ModalProvider = ({ children }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     const [addTask, setAddTask] = useState(false);
+    const [updateTask, setUpdateTask] = useState(false);
+    const [deleteTask, setDeleteTask] = useState(false);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -18,12 +22,20 @@ export const ModalProvider = ({ children }) => {
     const closeModal = () => {
         setIsModalOpen(false);
         setAddTask(false)
+        setUpdateTask(false)
+        setDeleteTask(false)
     }
 
     return (
-        <ModalContext.Provider value={{ isModalOpen, openModal, closeModal, setAddTask }}>
+        <ModalContext.Provider
+            value={{ isModalOpen, openModal, closeModal, setAddTask, setUpdateTask, setDeleteTask }}>
             {children}
-            <Modal isOpen={isModalOpen} onClose={closeModal} addTask={addTask} />
+            <Modal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                addTask={addTask}
+                updateTask={updateTask}
+                deleteTask={deleteTask} />
         </ModalContext.Provider>
     )
 }
