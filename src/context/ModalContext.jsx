@@ -33,7 +33,7 @@ export const ModalProvider = ({ children }) => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={closeModal}
-                addTask={addTask}
+                createTask={addTask}
                 updateTask={updateTask}
                 deleteTask={deleteTask} />
         </ModalContext.Provider>

@@ -3,11 +3,9 @@ import { useRef, useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
 
 import { Tag } from '../Tag';
-import { AddTaskBtn } from '../AddTaskBtn';
 
 import css from './Task.module.scss'
 import { ICONS } from '../../constants/constants';
-
 
 export const Task = ({ tagAlert }) => {
     const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext)
@@ -48,7 +46,6 @@ export const Task = ({ tagAlert }) => {
                     </button>
                 </label>
             </form >
-            <AddTaskBtn createTask />
         </>
     )
 }

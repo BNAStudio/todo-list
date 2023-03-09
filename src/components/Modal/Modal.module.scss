@@ -1,10 +1,42 @@
-.modal-overlay {
+@import "../../styles/tools/mixins.scss";
+
+.c-modal {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: red;
+	background: var(--dark);
 	width: 100%;
 	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.c-modal-content {
+	width: 90%;
+	max-width: 500px;
+	height: 35vh;
+	background-color: var(--light);
+	margin: 0 auto;
+	@include glass_effect;
+}
+
+@media (min-width: 500px) {
+	.c-modal-content {
+		width: 80%;
+		height: 90vh;
+	}
+}
+@media (min-width: 900px) {
+	.c-modal-content {
+		width: 60%;
+		height: 90vh;
+	}
+}
+@media (min-width: 1200px) {
+	.c-modal-content {
+		width: 40%;
+		height: 90vh;
+	}
 }
 
 .modal-create,
