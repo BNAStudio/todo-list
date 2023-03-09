@@ -15,6 +15,6 @@
 	justify-content: center;
 	overflow: hidden;
 	> p {
-		@include gradient_font_color(gradient_blue);
+		@include font_color--gradient(gradient_blue);
 	}
 }
