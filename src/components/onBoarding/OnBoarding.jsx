@@ -1,30 +1,35 @@
-/* eslint-disable react/prop-types */
-import { useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types';
 import { gsap } from "gsap";
 import css from './OnBoarding.module.scss'
 
-// TODO: Crear estado | boolean | true cuando finalice la animacion
 // TODO: Crear hook para almacenamiento en sessionStorage
 // TODO: Crear hook para almacenamiento en localStorage
 
 export const OnBoarding = ({ text, url, delay }) => {
+    const [animation, setAnimation] = useState(true);
     const ref = useRef();
 
     useLayoutEffect(() => {
-        const onBoardingAnimation = gsap.fromTo(ref.current, {
-            opacity: 0,
-        },
-            {
-                opacity: 1,
-                scale: 1,
-                duration: delay,
-                ease: "power3.out",
-                onComplete: () => console.log(`Redirigiendo a: ${url}...`)
+        if (animation) {
+            const onBoardingAnimation = gsap.fromTo(ref.current, {
+                opacity: 0,
+            },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: delay,
+                    ease: "power3.out",
+                    onComplete: () => {
+                        setAnimation(false)
+                        console.log(animation);
+                        console.log(`Redirigiendo a: ${url}...`)
+                    }
+                }
+            )
+            return () => {
+                onBoardingAnimation.kill();
             }
-        )
-        return () => {
-            onBoardingAnimation.kill();
         }
     })
 
@@ -43,7 +48,7 @@ OnBoarding.defaultProps = {
 };
 
 OnBoarding.propTypes = {
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     url: PropTypes.string.isRequired,
     delay: PropTypes.number
 };

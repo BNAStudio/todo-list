@@ -1,43 +1,57 @@
 {
-	"name": "react-template",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"start": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"format": "prettier --write .",
-		"lint": "eslint --fix . --ext .js,.jsx",
-		"cmgen": "cz"
-	},
-	"dependencies": {
-		"gsap": "^3.11.4",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^17.1.2",
-		"@commitlint/config-conventional": "^17.1.0",
-		"@types/react": "^18.0.17",
-		"@types/react-dom": "^18.0.6",
-		"@vitejs/plugin-react": "^2.1.0",
-		"commitizen": "^4.2.5",
-		"eslint": "^8.24.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-config-standard": "^17.0.0",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-n": "^15.3.0",
-		"eslint-plugin-promise": "^6.0.1",
-		"eslint-plugin-react": "^7.31.8",
-		"prettier": "2.7.1",
-		"prop-types": "^15.8.1",
-		"sass": "^1.58.3",
-		"vite": "^3.1.0"
-	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
-	}
+  "name": "task-list",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "lint": "eslint --fix . --ext .js,.jsx",
+    "cmgen": "cz",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "gsap": "^3.11.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-vite": "^0.4.2",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "babel-loader": "^8.3.0",
+    "commitizen": "^4.2.5",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.8",
+    "prettier": "2.7.1",
+    "prop-types": "^15.8.1",
+    "sass": "^1.58.3",
+    "vite": "^3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
 }

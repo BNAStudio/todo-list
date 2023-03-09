@@ -1,4 +1,4 @@
-@mixin gradient_font_color($gradient) {
+@mixin font_color--gradient($gradient) {
 	font-family: var(--font-roboto);
 	text-shadow: var(--text-shadow);
 	font-size: max(12px, min(var(--font-size-xl), 27vw));
@@ -38,6 +38,36 @@
 	} @else if $size == p {
 		font-size: var(--font-size-xs);
 		font-weight: 400;
+	}
+}
+
+@mixin gradient_border-animation {
+	--border-size: 1px;
+	background-image: conic-gradient(
+			from var(--border-angle),
+			var(--dark),
+			var(--dark) 50%,
+			var(--dark)
+		),
+		conic-gradient(
+			from var(--border-angle),
+			transparent 10%,
+			rgba(13, 1, 38, 1),
+			rgba(2, 51, 115, 1),
+			rgba(238, 229, 255, 0.8),
+			rgba(13, 1, 38, 1)
+		);
+	background-size: calc(100% - (var(--border-size) * 2))
+			calc(100% - (var(--border-size) * 2)),
+		cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	animation: bg-spin 5s linear infinite;
+	transition: hover 400ms;
+	@keyframes bg-spin {
+		to {
+			--border-angle: 1turn;
+		}
 	}
 }
 
