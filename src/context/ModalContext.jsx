@@ -20,10 +20,10 @@ export const ModalProvider = ({ children }) => {
     }
 
     const closeModal = () => {
-        setIsModalOpen(false);
-        setAddTask(false)
-        setUpdateTask(false)
-        setDeleteTask(false)
+            setIsModalOpen(false);
+            setAddTask(false)
+            setUpdateTask(false)
+            setDeleteTask(false)
     }
 
     return (

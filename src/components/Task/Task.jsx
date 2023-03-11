@@ -8,7 +8,8 @@ import css from './Task.module.scss'
 import { ICONS } from '../../constants/constants';
 
 export const Task = ({ tagAlert }) => {
-    const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext)
+    const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext);
+    
     const checkboxRef = useRef();
 
     const onHandleUpdate = e => {

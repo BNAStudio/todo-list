@@ -1,21 +1,37 @@
 /* eslint-disable react/prop-types */
-import { CreateTaskModal, UpdateTaskModal } from './index';
-// import { useLayoutEffect, useRef } from 'react';
 import { useRef } from 'react';
-// import { gsap } from "gsap";
+import { CreateTaskModal, UpdateTaskModal } from './index';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { gsap } from "gsap";
 import css from './Modal.module.scss';
 
-
-
 export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) => {
-    const modalContainerRef = useRef(null);
+
+    const iconRef = useRef();
+
+    const onCloseHandle = () => {
+        // animacion para desktop
+        gsap.to(iconRef.current,
+            {
+                rotate: 180,
+                duration: 1,
+                ease: "elastic.out(1, 0.3)",
+                onComplete: onClose
+            }
+        )
+        // TODO: Crear animacion para mobile
+    }
 
     if (!isOpen) return null;
-
     return (
-        <div ref={modalContainerRef} className={css["c-modal"]}>
+        <div className={css["c-modal"]}>
             <div className={css["c-modal-content"]}>
-                <button onClick={onClose}>Close</button>
+                <button
+                    className={css["close-modal-btn"]}
+                    onClick={onCloseHandle}>
+                    <FontAwesomeIcon ref={iconRef} fixedWidth icon={faXmark} />
+                </button>
                 {createTask && <CreateTaskModal />}
                 {updateTask && <UpdateTaskModal />}
                 {deleteTask && <CreateTaskModal />}
@@ -26,11 +42,4 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
 
 
 // TODO: Crear los estilos en SASS
-// TODO: Crear la animacion en gsap
-// useLayoutEffect(() => {
-//     const modalInAnimation = gsap.
-
-//     return () => {
-//         second
-//     };
-// }, [third])
+// TODO: Animar la transicion del modal al desaparecer
