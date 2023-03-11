@@ -1,4 +1,5 @@
-// import { OnBoarding, Task, Tag } from './components/index';
+// import { OnBoarding, Task, Tag, AddTaskBtn } from './components/index';
+import { AddTaskBtn } from './components/AddTaskBtn';
 import { Task } from './components/Task/Task';
 import { TodoProvider } from './context/TaskContext';
 import { ModalProvider } from './context/ModalContext';
@@ -18,6 +19,7 @@ const App = () => {
 					alignItems: "center"
 				}}>
 					<Task tagAlert="soon" />
+					<AddTaskBtn />
 				</div>
 			</ModalProvider>
 		</TodoProvider>

@@ -7,10 +7,6 @@ export default {
 
 const Template = (args) => <Task {...args} />
 
-// export const TaskList = (args) => (
-//     <Task {...Task.args} />
-// )
-
 export const Soon = Template.bind({});
 Soon.args = { tagAlert: "soon" };
 

@@ -1,16 +1,28 @@
 /* eslint-disable react/prop-types */
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { ModalContext } from '../../context/ModalContext';
 
 import { Tag } from '../Tag';
-import { AddTaskBtn } from './AddTaskBtn';
 
 import css from './Task.module.scss'
 import { ICONS } from '../../constants/constants';
 
-
 export const Task = ({ tagAlert }) => {
-
+    const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext);
+    
     const checkboxRef = useRef();
+
+    const onHandleUpdate = e => {
+        e.preventDefault();
+        openModal();
+        setUpdateTask(true)
+    }
+    const onHandleDelete = e => {
+        e.preventDefault();
+        openModal();
+        setDeleteTask(true)
+    }
+
     return (
         <>
             <form className={css.form}>
@@ -24,18 +36,17 @@ export const Task = ({ tagAlert }) => {
                     <h3 className={css.task__title}>Title Task</h3>
                     <Tag tag={tagAlert} />
                     <button
-                        className={`${css.task__btn} 
-                    ${css["task__btn--update"]}`}>
+                        onClick={onHandleUpdate}
+                        className={`${css.task__btn} ${css["task__btn--update"]}`}>
                         {ICONS.update}
                     </button>
                     <button
-                        className={`${css.task__btn} 
-                    ${css["task__btn--delete"]}`}>
+                        onClick={onHandleDelete}
+                        className={`${css.task__btn} ${css["task__btn--delete"]}`}>
                         {ICONS.delete}
                     </button>
                 </label>
             </form >
-            <AddTaskBtn createTask />
         </>
     )
 }

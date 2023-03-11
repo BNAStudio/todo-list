@@ -1,3 +1,12 @@
+@mixin glass_effect() {
+	background: var(--glass-blue);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 @mixin font_color--gradient($gradient) {
 	font-family: var(--font-roboto);
 	text-shadow: var(--text-shadow);

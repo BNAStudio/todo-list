@@ -1,8 +1,81 @@
-.modal-overlay {
+@import "../../styles/tools/mixins.scss";
+
+.c-modal {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: red;
 	width: 100%;
 	height: 100vh;
+	display: flex;
+	align-items: center;
 }
+
+.c-modal-content {
+	width: 90%;
+	max-width: 750px;
+	height: 35vh;
+	margin: 0 auto;
+	@include glass_effect;
+}
+
+.close-modal-btn {
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 1px solid var(--complementary);
+	outline: none;
+}
+.close-modal-btn > svg {
+	height: 40px;
+	color: var(--light);
+}
+.close-modal-btn > svg:hover {
+	height: 40px;
+	color: var(--complementary-hover);
+}
+
+@media (min-width: 500px) {
+	.c-modal-content {
+		width: 60%;
+		height: 75vh;
+	}
+}
+@media (min-width: 900px) {
+	.c-modal-content {
+		width: 60%;
+		height: 75vh;
+	}
+}
+@media (min-width: 1200px) {
+	.c-modal-content {
+		width: 60%;
+		height: 75vh;
+	}
+}
+
+// @keyframes beating {
+// 	0% {
+// 		transform: scale(1);
+// 		color: var(--light);
+// 	}
+
+// 	25% {
+// 		color: var(--primary-hover);
+// 	}
+
+// 	50% {
+// 		transform: scale(1.2);
+// 		color: var(--complementary-hover);
+// 	}
+
+// 	75% {
+// 		color: var(--medium-light);
+// 	}
+
+// 	100% {
+// 		transform: scale(1);
+// 		color: var(--light);
+// 	}
+// }

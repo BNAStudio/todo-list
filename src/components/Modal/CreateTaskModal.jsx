@@ -1,7 +1,8 @@
+import css from './Modal.module.scss'
 
 export const CreateTaskModal = () => {
-    console.log('from create task modal');
+    console.log('from CREATE task modal');
     return (
-        <div>CreateTaskModal</div>
+        <div className={css["modal-create"]}></div>
     )
 }

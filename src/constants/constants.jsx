@@ -3,7 +3,9 @@ import {
 	faArrowsRotate,
 	faTrash,
 	faBars,
+	faXmark
 } from "@fortawesome/free-solid-svg-icons";
+
 
 export const DAYS = {
 	today: "Today",
@@ -13,7 +15,8 @@ export const DAYS = {
 };
 
 export const ICONS = {
-	update: <FontAwesomeIcon icon={faArrowsRotate} />,
-	delete: <FontAwesomeIcon icon={faTrash} />,
-	drag: <FontAwesomeIcon icon={faBars} />,
+	update: <FontAwesomeIcon id="icon-update" icon={faArrowsRotate} />,
+	delete: <FontAwesomeIcon id="icon-delete" icon={faTrash} />,
+	drag: <FontAwesomeIcon id="icon-drag" icon={faBars} />,
+	close: <FontAwesomeIcon id="icon-close" fixedWidth icon={faXmark} />
 };
