@@ -8,15 +8,16 @@ import css from './Modal.module.scss';
 
 export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) => {
 
-    const iconRef = useRef();
+    const closeIconRef = useRef();
+    const modalRef = useRef();
 
     const onCloseHandle = () => {
         // animacion para desktop
-        gsap.to(iconRef.current,
+        gsap.to(closeIconRef.current,
             {
-                rotate: 180,
-                duration: 1,
-                ease: "elastic.out(1, 0.3)",
+                rotate: 90,
+                duration: 0.35,
+                ease: "elastic.out(1, 0.2)",
                 onComplete: onClose
             }
         )
@@ -26,11 +27,11 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
     if (!isOpen) return null;
     return (
         <div className={css["c-modal"]}>
-            <div className={css["c-modal-content"]}>
+            <div ref={modalRef} className={css["c-modal-content"]}>
                 <button
                     className={css["close-modal-btn"]}
                     onClick={onCloseHandle}>
-                    <FontAwesomeIcon ref={iconRef} fixedWidth icon={faXmark} />
+                    <FontAwesomeIcon ref={closeIconRef} style={{ fontSize: "24px" }} icon={faXmark} />
                 </button>
                 {createTask && <CreateTaskModal />}
                 {updateTask && <UpdateTaskModal />}

@@ -3,21 +3,19 @@ import { createContext, useReducer } from "react";
 import { taskReducer } from "../reducers/taskReducer";
 
 // Context
-export const TodoContext = createContext();
+export const TaskContext = createContext();
 
 // Initial state - reducer
 export const initialStateTask = {
-    tasks: [
-        { id: 1, task: "TESTING TASK 1", state: "pending", checked: false },
-    ]
+    tasks: []
 }
 
 // Context component
-export const TodoProvider = ({ children }) => {
+export const TaskContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(taskReducer, initialStateTask)
     return (
-        <TodoContext.Provider value={{ state, dispatch }}>
+        <TaskContext.Provider value={{ state, dispatch }}>
             {children}
-        </TodoContext.Provider>
+        </TaskContext.Provider>
     )
 }

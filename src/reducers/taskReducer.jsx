@@ -1,12 +1,5 @@
 import { TYPES } from "../actions/taskActions";
 
-// const userTask = {
-// 	id: 1,
-// 	task: "TESTING TASK 1",
-// 	state: "pending",
-// 	checked: false
-// }
-
 // Reducer function
 export function taskReducer(state, action) {
     switch (action.type) {
@@ -14,15 +7,9 @@ export function taskReducer(state, action) {
             return {
                 ...state,
                 tasks: [
-                    ...state.tasks,
-                    {
-                        id: Date.now(),
-                        task: action.payload,
-                        state: "pending"
-                    }
+                    ...state.tasks, action.payload
                 ]
-            }
-                ;
+            };
         case TYPES.UPDATE_TASK:
             return console.log(`update task: ${state.task} ${state.id}`);
         case TYPES.DELETE_TASK:
