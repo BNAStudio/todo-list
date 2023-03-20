@@ -12,9 +12,10 @@ export const OnBoarding = ({ text, url, delay }) => {
 
     useLayoutEffect(() => {
         if (animation) {
-            const onBoardingAnimation = gsap.fromTo(ref.current, {
-                opacity: 0,
-            },
+            const onBoardingAnimation = gsap.fromTo(ref.current, 
+                {
+                    opacity: 0,
+                },
                 {
                     opacity: 1,
                     scale: 1,
