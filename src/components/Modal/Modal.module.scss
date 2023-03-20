@@ -62,14 +62,23 @@
 .c-form {
 	width: 100%;
 	height: 100%;
+	padding: 30px 15px 5px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	font-family: var(--font-raleway);
+}
+
+.c-input {
+	display: flex;
+	flex-flow: nowrap;
+	width: 100%;
 }
 
 .label {
 	width: 100%;
+	max-width: 100px;
 }
 .input {
 	width: 100%;
