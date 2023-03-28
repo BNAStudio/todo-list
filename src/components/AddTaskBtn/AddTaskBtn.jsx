@@ -6,8 +6,8 @@ import css from './AddTaskBtn.module.scss';
 
 
 export const AddTaskBtn = () => {
+    const { openModal, setAddTask } = useContext(ModalContext);
 
-    const { openModal, setAddTask } = useContext(ModalContext)
     const onHandleCreate = () => {
         openModal()
         setAddTask(true)

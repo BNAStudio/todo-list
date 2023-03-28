@@ -1,6 +1,5 @@
 // import { OnBoarding, Task, Tag, AddTaskBtn } from './components/index';
-import { AddTaskBtn } from './components/AddTaskBtn';
-import { Task } from './components/Task/Task';
+import { TaskList } from './components/Task';
 import { TaskContextProvider } from './context/TaskContext';
 import { ModalProvider } from './context/ModalContext';
 
@@ -18,8 +17,7 @@ const App = () => {
 					justifyContent: "center",
 					alignItems: "center"
 				}}>
-					<Task tagAlert="soon" />
-					<AddTaskBtn />
+					<TaskList />
 				</div>
 			</ModalProvider>
 		</TaskContextProvider>

@@ -49,6 +49,47 @@
 	flex-grow: 3;
 }
 
+/*--- Task list ---*/
+
+.no-tasks__message {
+	text-align: center;
+	@include text_style(h3, var(--light));
+}
+
+.c-taskList {
+	display: flex;
+	flex-flow: column;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	border: 1px solid var(--primary);
+	width: 90%;
+	max-width: 750px;
+	height: max-content;
+	padding: 10px 5px;
+	margin: 0 auto;
+}
+
+@media (min-width: 500px) {
+	.c-taskList {
+		width: 60%;
+		height: 75vh;
+	}
+}
+@media (min-width: 900px) {
+	.c-taskList {
+		width: 60%;
+		height: 75vh;
+	}
+}
+@media (min-width: 1200px) {
+	.c-taskList {
+		width: 60%;
+		height: 75vh;
+	}
+}
+
 // gradient_border-animation - custom property
 @property --border-angle {
 	syntax: "<angle>";
