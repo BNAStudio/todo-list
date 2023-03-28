@@ -10,8 +10,12 @@ export function taskReducer(state, action) {
                     ...state.tasks, action.payload
                 ]
             };
+        case TYPES.READ_TASK:
+            return state;
         case TYPES.UPDATE_TASK:
-            return console.log(`update task: ${state.task} ${state.id}`);
+            return {
+                
+            }
         case TYPES.DELETE_TASK:
             return console.log(`delete task: ${state.task} ${state.id}`);
         case TYPES.CHECKED_TASK:
