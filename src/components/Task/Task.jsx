@@ -1,29 +1,47 @@
 /* eslint-disable react/prop-types */
-import { useRef, useContext } from 'react';
-
-// import { TYPES } from '../../actions/taskActions'
+import { useRef, useContext, useEffect } from 'react';
 import { ModalContext } from '../../context/ModalContext';
-
+import { TaskContext } from '../../context/TaskContext';
 import { Tag } from '../Tag';
-
-import css from './Task.module.scss'
+import { TYPES } from '../../actions/taskActions';
 import { ICONS } from '../../constants/constants';
+import css from './Task.module.scss'
 
-export const Task = ({ tagAlert, taskTitle }) => {
-    const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext);
-
+export const Task = ({ tagAlert, taskId, taskTitle }) => {
     const checkboxRef = useRef();
 
-    const onHandleUpdate = e => {
+    const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext);
+    const { dispatch } = useContext(TaskContext)
+
+    const handleClick = e => {
         e.preventDefault();
         openModal();
+        dispatch({ type: TYPES.FILTERED_TASK, payload: { id: taskId } });
         setUpdateTask(true)
     }
+
+    const onPinTask = (e) => {
+        dispatch({
+            type: TYPES.CHECKED_TASK,
+            payload: {
+                id: taskId,
+                isChecked: e.target.checked
+            }
+        });
+    }
+
+
     const onHandleDelete = e => {
         e.preventDefault();
         openModal();
         setDeleteTask(true)
     }
+
+    // Asigna ID a la tarea
+    useEffect(() => {
+        dispatch({ type: TYPES.FILTERED_TASK, payload: { id: taskId } });
+    }, [])
+
 
     return (
         <>
@@ -34,11 +52,12 @@ export const Task = ({ tagAlert, taskTitle }) => {
                         ref={checkboxRef}
                         type="checkbox"
                         className={css.task__checkbox}
-                        name="checkbox" />
+                        name="checkbox"
+                        onChange={onPinTask} />
                     <h3 className={css.task__title}>{taskTitle}</h3>
                     <Tag tag={tagAlert} />
                     <button
-                        onClick={onHandleUpdate}
+                        onClick={handleClick}
                         className={`${css.task__btn} ${css["task__btn--update"]}`}>
                         {ICONS.update}
                     </button>
@@ -52,5 +71,3 @@ export const Task = ({ tagAlert, taskTitle }) => {
         </>
     )
 }
-
-// { task: { id, title, state }, onPintak, onUpdateTask, onRemoveTask }

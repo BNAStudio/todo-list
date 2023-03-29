@@ -12,19 +12,17 @@ export const TaskList = () => {
     return (
         <div className={css["c-taskList"]}>
             {
-                state.tasks.length > 0 ?
-                    state.tasks.map(item => {
+                state.tasks.length > 0
+                    ? state.tasks.map(item => {
                         return (
                             <div key={item.id}>
-                                <Task taskTitle={item.issue} />
+                                <Task taskTitle={item.issue} taskId={item.id} />
                             </div>
                         )
                     })
-                    : (
-                        <>
-                            <p className={css["no-tasks__message"]}>No tienes tareas pendientes...</p>
-                        </>
-                    )
+                    : <>
+                        <p className={css["no-tasks__message"]}>No tienes tareas pendientes...</p>
+                    </>
             }
             <AddTaskBtn />
         </div>
