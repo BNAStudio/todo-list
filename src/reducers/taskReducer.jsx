@@ -20,12 +20,10 @@ export function taskReducer(state, action) {
             return {
                 ...state,
             };
-        case TYPES.DELETE_TASK:
-            return console.log(`delete task: ${state.task} ${state.id}`);
         case TYPES.CHECKED_TASK:
-            if (!state.filteredTask) {
-                return state;
-            }
+            // if (!state.filteredTask) {
+            //     return state;
+            // }
             const updatedTasks = state.tasks.map(task => {
                 if (task.id === action.payload.id) {
                     return {
@@ -39,6 +37,8 @@ export function taskReducer(state, action) {
                 ...state,
                 tasks: updatedTasks
             };
+        case TYPES.DELETE_TASK:
+            return console.log(`delete task: ${state.task} ${state.id}`);
         default:
             return state;
     }

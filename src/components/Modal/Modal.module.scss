@@ -12,24 +12,30 @@
 }
 
 .c-modal-content {
-	width: 90%;
-	max-width: 750px;
-	height: 35vh;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+	padding: 50px 0;
+	gap: 10px;
+	width: 350px;
+	height: 55vh;
 	margin: 0 auto;
+	border-radius: 40px;
 	@include glass_effect;
 }
 
 .close-modal-btn {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 20px;
+	right: 25px;
 	width: 30px;
 	height: 30px;
 	background: transparent;
 	border-radius: 50%;
 	cursor: pointer;
 	border: 1px solid transparent;
-	// border: 1px solid var(--complementary);
 	outline: none;
 }
 .close-modal-btn > svg {
@@ -39,30 +45,11 @@
 	color: var(--complementary-hover);
 }
 
-@media (min-width: 500px) {
-	.c-modal-content {
-		width: 60%;
-		height: 75vh;
-	}
-}
-@media (min-width: 900px) {
-	.c-modal-content {
-		width: 60%;
-		height: 75vh;
-	}
-}
-@media (min-width: 1200px) {
-	.c-modal-content {
-		width: 60%;
-		height: 75vh;
-	}
-}
-
 /*--- create modal ---*/
 .c-form {
 	width: 100%;
-	height: 100%;
-	padding: 30px 15px 5px;
+	height: 27vh;
+
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -72,7 +59,8 @@
 
 .c-input {
 	display: flex;
-	flex-flow: nowrap;
+	justify-content: center;
+	flex-flow: wrap;
 	width: 100%;
 }
 
@@ -81,5 +69,13 @@
 	max-width: 100px;
 }
 .input {
-	width: 100%;
+	background: var(--input-gradient);
+	font-size: 1.2rem;
+	width: 90%;
+	height: 45px;
+	border: none;
+	padding: 0 10px;
+	border-radius: 3px;
+
+	@include text_style(p, var(--light));
 }

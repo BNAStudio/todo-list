@@ -11,7 +11,7 @@ export const ModalProvider = ({ children }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const [addTask, setAddTask] = useState(false);
+    const [createTask, setAddTask] = useState(false);
     const [updateTask, setUpdateTask] = useState(false);
     const [deleteTask, setDeleteTask] = useState(false);
 
@@ -20,10 +20,10 @@ export const ModalProvider = ({ children }) => {
     }
 
     const closeModal = () => {
-            setIsModalOpen(false);
-            setAddTask(false)
-            setUpdateTask(false)
-            setDeleteTask(false)
+        setIsModalOpen(false);
+        setAddTask(false)
+        setUpdateTask(false)
+        setDeleteTask(false)
     }
 
     return (
@@ -33,7 +33,7 @@ export const ModalProvider = ({ children }) => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={closeModal}
-                createTask={addTask}
+                createTask={createTask}
                 updateTask={updateTask}
                 deleteTask={deleteTask} />
         </ModalContext.Provider>

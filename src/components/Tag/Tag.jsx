@@ -4,14 +4,27 @@ import css from './Tag.module.scss'
 import { DAYS } from '../../constants/constants'
 
 
-export const Tag = ({ tag }) => {
+export const Tag = ({ tag, isIcon }) => {
 
     return (
-        <div className={`${css["c-tag"]} ${css[`c-tag--${tag}`]}`} >
-            <p>
-                {DAYS[`${tag}`]}
-            </p>
-        </div>
+        <>
+            {isIcon
+                ?
+                <div className={`${css["c-tag-icon"]}`} >
+                    {
+                        tag === "msg"
+                            ? <p className={`${css["c-tag--message"]}`}>Add a new issue</p>
+                            : <p className={`${css[`c-tag--${tag}`]}`}>{DAYS[`${tag}`]}</p>
+                    }
+                </div>
+                :
+                <div className={`${css["c-tag"]} ${css[`c-tag--${tag}`]}`} >
+                    <p>
+                        {DAYS[`${tag}`]}
+                    </p>
+                </div>
+            }
+        </>
     )
 }
 
@@ -22,3 +35,5 @@ Tag.defaultProps = {
 Tag.propTypes = {
     tag: PropTypes.string
 }
+
+// tag === DAYS.message ?? DAYS[`${tag}`]

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useRef, useContext, useEffect } from 'react';
+import { useRef, useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
 import { TaskContext } from '../../context/TaskContext';
 import { Tag } from '../Tag';
@@ -11,7 +11,7 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
     const checkboxRef = useRef();
 
     const { openModal, setUpdateTask, setDeleteTask } = useContext(ModalContext);
-    const { dispatch } = useContext(TaskContext)
+    const { state, dispatch } = useContext(TaskContext);
 
     const handleClick = e => {
         e.preventDefault();
@@ -28,8 +28,8 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
                 isChecked: e.target.checked
             }
         });
+        console.log(state);
     }
-
 
     const onHandleDelete = e => {
         e.preventDefault();
@@ -37,37 +37,29 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
         setDeleteTask(true)
     }
 
-    // Asigna ID a la tarea
-    useEffect(() => {
-        dispatch({ type: TYPES.FILTERED_TASK, payload: { id: taskId } });
-    }, [])
-
-
     return (
-        <>
-            <form className={css.form}>
-                <label className={css["c-task"]} htmlFor="task">
-                    {ICONS.drag}
-                    <input
-                        ref={checkboxRef}
-                        type="checkbox"
-                        className={css.task__checkbox}
-                        name="checkbox"
-                        onChange={onPinTask} />
-                    <h3 className={css.task__title}>{taskTitle}</h3>
-                    <Tag tag={tagAlert} />
-                    <button
-                        onClick={handleClick}
-                        className={`${css.task__btn} ${css["task__btn--update"]}`}>
-                        {ICONS.update}
-                    </button>
-                    <button
-                        onClick={onHandleDelete}
-                        className={`${css.task__btn} ${css["task__btn--delete"]}`}>
-                        {ICONS.delete}
-                    </button>
-                </label>
-            </form >
-        </>
+        <form className={css.form}>
+            <label className={css["c-task"]} htmlFor="task">
+                {ICONS.drag}
+                <input
+                    ref={checkboxRef}
+                    type="checkbox"
+                    className={css.task__checkbox}
+                    name="checkbox"
+                    onChange={onPinTask} />
+                <h3 className={css.task__title}>{taskTitle}</h3>
+                <Tag tag={tagAlert} />
+                <button
+                    onClick={handleClick}
+                    className={`${css.task__btn} ${css["task__btn--update"]}`}>
+                    {ICONS.update}
+                </button>
+                <button
+                    onClick={onHandleDelete}
+                    className={`${css.task__btn} ${css["task__btn--delete"]}`}>
+                    {ICONS.delete}
+                </button>
+            </label>
+        </form >
     )
 }

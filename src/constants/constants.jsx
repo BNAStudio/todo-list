@@ -9,10 +9,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 export const DAYS = {
-	today: "Today",
-	yesterday: "Yesterday",
-	tomorrow: "Tomorrow",
-	soon: "Soon",
+	message: "msg",
+	due: "due",
+	today: "today",
+	tomorrow: "tomorrow",
+	soon: "soon"
 };
 
 export const ICONS = {
@@ -36,4 +37,19 @@ export const CALC_DAYS = (startDate, endDate) => {
 	const daysDif = Math.round(msDif / msPerDay) + 1;
 
 	return daysDif;
+}
+
+export const CALC_TAG = (days) => {
+	switch (true) {
+		case days < 1:
+			return DAYS.due
+		case days === 1:
+			return DAYS.today
+		case days === 2:
+			return DAYS.tomorrow
+		case days > 2:
+			return DAYS.soon
+		default:
+			return DAYS.message
+	}
 }

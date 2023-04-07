@@ -19,8 +19,8 @@
 	--box-shadow-hard: 0px 0px 10px 2px rgba(238, 229, 255, 1);
 
 	--text-shadow: 0px 0px 15px rgba(238, 229, 255, 1);
-	--font-size-xs: 0.8rem;
-	--font-size-s: 1rem;
+	--font-size-xs: 1rem;
+	--font-size-s: 1.2rem;
 	--font-size-m: 2rem;
 	--font-size-l: 3rem;
 	--font-size-xl: 7rem;
@@ -28,6 +28,11 @@
 	--font-roboto: "Roboto", sans-serif;
 	--font-raleway: "Raleway", sans-serif;
 
+	--input-gradient: linear-gradient(
+		90deg,
+		rgba(6, 19, 44, 0.9) 0%,
+		rgba(28, 54, 105, 0.9) 100%
+	);
 	--blue-gradient: linear-gradient(
 		133deg,
 		rgba(2, 51, 115, 1) 0%,
