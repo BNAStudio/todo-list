@@ -1,8 +1,9 @@
 @import "../../styles/index.scss";
 
 .form {
-	display: flex;
-	justify-content: center;
+	// display: flex;
+	// justify-content: center;
+	display: grid;
 	width: 100%;
 	padding: 0 10px;
 	font-family: var(--font-raleway);
@@ -11,20 +12,18 @@
 
 .c-task {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	width: 100%;
 	height: max-content;
-	min-width: 300px;
-	max-width: 500px;
+	width: 400px;
 	padding: 10px;
 	gap: 15px;
 	color: white;
-	border-bottom: 2px solid var(--medium-dark);
 	border-radius: 10px;
 	transition: hover 1s;
 	&:hover {
-		@include gradient_border-animation;
+		border: 1px solid var(--medium-dark);
 		cursor: pointer;
 	}
 }
@@ -46,7 +45,11 @@
 	color: var(--alert);
 }
 .task__title {
-	flex-grow: 3;
+	@include text_style(p, var(--light));
+	width: 70px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /*--- Task list ---*/

@@ -3,30 +3,20 @@ import { TaskContext } from '../../context/TaskContext';
 import css from './Modal.module.scss'
 
 export const UpdateTaskModal = () => {
-    const [form, setForm] = useState({});
-
     const { state } = useContext(TaskContext);
-    console.log(state.tasks);
+    const [form, setForm] = useState(state.filteredTask);
 
-    // const { dispatch } = useContext(TaskContext);
+    const handleChange = e => {
+        setForm(prevForm => ({ ...prevForm, [e.target.name]: e.target.value }));
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('from HANDLE SUBMIT update');
-    }
+    };
+    console.log(form)
 
-    const handleChange = e => {
-        // setForm({ ...form, [e.target.name]: e.target.value });
-        console.log('from HANDLE CHANGE delete')
-        console.log('from HANDLE CHANGE delete')
-    }
+    const handleReset = () => setForm({});
 
-    const handleDate = e => {
-        console.log('from HANDLE DATE delete')
-        setForm({ ...form, [e.target.name]: e.target.value });
-    }
-
-    const resetForm = () => setForm({});
 
     return (
         <>
@@ -45,6 +35,7 @@ export const UpdateTaskModal = () => {
                         name="issue"
                         className={css.input}
                         onChange={handleChange}
+                        value={form.issue}
                         required
                     />
                 </div>
@@ -60,6 +51,7 @@ export const UpdateTaskModal = () => {
                         name="description"
                         className={css.input}
                         onChange={handleChange}
+                        value={form.description}
                         required
                     />
                 </div>
@@ -73,8 +65,9 @@ export const UpdateTaskModal = () => {
                         id="create-start-data"
                         type="date"
                         name="start"
+                        value={form.start}
                         className={css.input}
-                        onChange={handleDate}
+                        onChange={handleChange}
                         required
                     />
 
@@ -86,14 +79,15 @@ export const UpdateTaskModal = () => {
                         id="create-end-data"
                         type="date"
                         name="end"
+                        value={form.end}
                         className={css.input}
-                        onChange={handleDate}
+                        onChange={handleChange}
                     />
                 </div>
 
                 {/* SUBMIT BTN */}
                 <button type="submit" value="create issue">Create</button>
-                <button type="reset" onClick={resetForm}>Clear</button>
+                <button type="reset" onClick={handleReset}>Clear</button>
             </form>
         </>
     )

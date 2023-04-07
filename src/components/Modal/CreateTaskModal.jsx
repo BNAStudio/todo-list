@@ -1,23 +1,30 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { TaskContext } from '../../context/TaskContext';
 import { TYPES } from '../../actions/taskActions'
-import { ID, CALC_DAYS } from '../../constants/constants';
+import { ID, CALC_DAYS, CALC_TAG } from '../../constants/constants';
 import css from './Modal.module.scss'
+import { Tag } from '../Tag/Tag';
 
 export const CreateTaskModal = () => {
     const [form, setForm] = useState({});
+    const [days, setDays] = useState(0)
 
     const { dispatch } = useContext(TaskContext);
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        const newId = ID.newId();
+    const handleTagTitle = () => {
         const days = CALC_DAYS(form.start, form.end)
-        dispatch({ type: TYPES.ADD_TASK, payload: { ...form, id: newId, days } })
+        return CALC_TAG(days)
     }
 
     const handleChange = e => {
         setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const newId = ID.newId();
+        // const days = CALC_DAYS(form.start, form.end)
+        dispatch({ type: TYPES.ADD_TASK, payload: { ...form, id: newId, days, tag: CALC_TAG(days) } })
     }
 
     const handleDate = e => {
@@ -26,68 +33,61 @@ export const CreateTaskModal = () => {
 
     const resetForm = () => setForm({});
 
+    useEffect(() => {
+        setDays(CALC_DAYS(form.start, form.end))
+    })
+
     return (
         <>
+            <Tag tag={handleTagTitle()} isIcon />
+
+
+            {form.start && form.end && <p>The issue have a duration of: {days} </p>}
+
             <form
                 className={css["c-form"]}
                 onSubmit={handleSubmit}
             >
+
                 {/* ISSUE */}
-                <div className={css["c-input"]}>
-                    <label
-                        htmlFor="issue"
-                        className={css.label}>Issue:</label>
-                    <input
-                        id="create-issue-input"
-                        type="text"
-                        name="issue"
-                        className={css.input}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+                <input
+                    id="create-issue-input"
+                    type="text"
+                    name="issue"
+                    className={css.input}
+                    onChange={handleChange}
+                    required
+                />
 
                 {/* DESCRIPTION */}
-                <div className={css["c-input"]}>
-                    <label
-                        htmlFor="description"
-                        className={css.label}>Description:</label>
-                    <input
-                        id="create-description-input"
-                        type="text"
-                        name="description"
-                        className={css.input}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+                <input
+                    id="create-description-input"
+                    type="text"
+                    name="description"
+                    className={css.input}
+                    onChange={handleChange}
+                    required
+                />
 
-                <div className={css["c-input"]}>
-                    {/* START DATE */}
-                    <label
-                        htmlFor="start"
-                        className={css.label}>Start date</label>
-                    <input
-                        id="create-start-data"
-                        type="date"
-                        name="start"
-                        className={css.input}
-                        onChange={handleDate}
-                        required
-                    />
+                {/* START DATE */}
+                <input
+                    id="create-start-data"
+                    type="date"
+                    name="start"
+                    className={css.input}
+                    onChange={handleDate}
+                    required
+                />
 
-                    {/* END DATE */}
-                    <label
-                        htmlFor="end"
-                        className={css.label}>End date</label>
-                    <input
-                        id="create-end-data"
-                        type="date"
-                        name="end"
-                        className={css.input}
-                        onChange={handleDate}
-                    />
-                </div>
+                {/* END DATE */}
+                <input
+                    id="create-end-data"
+                    type="date"
+                    name="end"
+                    className={css.input}
+                    onChange={handleDate}
+                    required
+                />
 
                 {/* SUBMIT BTN */}
                 <button type="submit" value="create issue">Create</button>

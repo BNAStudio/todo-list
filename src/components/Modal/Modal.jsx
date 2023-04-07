@@ -11,6 +11,11 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
     const closeIconRef = useRef();
     const modalRef = useRef();
 
+    // Todo: Es necesario ejecutar FILTERED_TASK al cerrar el modal, para poder eliminar el ultimo elemento filtrado
+    const clearFilteredTask = () => {
+        onClose()
+    }
+
     const onCloseHandle = () => {
         // animacion para desktop
         gsap.to(closeIconRef.current,
@@ -18,7 +23,7 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
                 rotate: 90,
                 duration: 0.35,
                 ease: "elastic.out(1, 0.2)",
-                onComplete: onClose
+                onComplete: clearFilteredTask
             }
         )
         // TODO: Crear animacion para mobile

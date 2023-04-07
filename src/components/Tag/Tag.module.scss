@@ -7,7 +7,7 @@
 
 	background: var(--medium-dark);
 	color: var(--light);
-	width: 80px;
+	width: max-content;
 	padding: 5px;
 	border-radius: 5px;
 	&:hover {
@@ -20,15 +20,50 @@
 	}
 }
 
+.c-tag-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	height: max-content;
+	padding: 5px;
+	font-family: var(--font-raleway);
+	border-bottom: 2px solid var(--complementary);
+}
+
+.c-tag--message {
+	@include text_style(h3, var(--light));
+	opacity: 0.5;
+}
+.c-tag--due {
+	@include text_style(p, var(--alert));
+	opacity: 0.5;
+}
 .c-tag--today {
 	@include text_style(p, var(--contrast));
-}
-.c-tag--soon {
-	@include text_style(p, var(--complementary));
+	opacity: 0.5;
 }
 .c-tag--tomorrow {
 	@include text_style(p, var(--primary-hover));
+	opacity: 0.5;
 }
-.c-tag--yesterday {
-	@include text_style(p, var(--alert));
+.c-tag--soon {
+	@include text_style(p, var(--complementary));
+	opacity: 0.5;
+}
+
+.c-tag--message:first-letter {
+	text-transform: uppercase;
+}
+.c-tag--due:first-letter {
+	text-transform: uppercase;
+}
+.c-tag--today:first-letter {
+	text-transform: uppercase;
+}
+.c-tag--tomorrow:first-letter {
+	text-transform: uppercase;
+}
+.c-tag--soon:first-letter {
+	text-transform: uppercase;
 }
