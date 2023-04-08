@@ -2,13 +2,12 @@
 import { useContext } from 'react'
 import { TaskContext } from '../../context/TaskContext'
 import { Task } from './Task'
-import { AddTaskBtn } from '../AddTaskBtn'
 import css from './Task.module.scss'
 // import { CALC_TAG } from '../../constants/constants'
 
 export const TaskList = () => {
     const { state } = useContext(TaskContext);
-    console.log(state);
+    // console.log(state);
 
     // TODO: Crear funcionalidad para que los dias en el estado de cada tarea se actualice diariamente y actualice el tag con respecto al dia actual
 
@@ -27,7 +26,6 @@ export const TaskList = () => {
                         <p className={css["no-tasks__message"]}>No tienes tareas pendientes...</p>
                     </>
             }
-            <AddTaskBtn />
         </div>
     )
 }

@@ -23,7 +23,6 @@ export const CreateTaskModal = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const newId = ID.newId();
-        // const days = CALC_DAYS(form.start, form.end)
         dispatch({ type: TYPES.ADD_TASK, payload: { ...form, id: newId, days, tag: CALC_TAG(days) } })
     }
 

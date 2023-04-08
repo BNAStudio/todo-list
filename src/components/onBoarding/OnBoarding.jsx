@@ -1,6 +1,7 @@
 import { useState, useRef, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types';
 import { gsap } from "gsap";
+// import { CURRENT_DAY } from '../../constants/constants';
 import css from './OnBoarding.module.scss'
 
 // TODO: Crear hook para almacenamiento en sessionStorage
@@ -12,7 +13,7 @@ export const OnBoarding = ({ text, url, delay }) => {
 
     useLayoutEffect(() => {
         if (animation) {
-            const onBoardingAnimation = gsap.fromTo(ref.current, 
+            const onBoardingAnimation = gsap.fromTo(ref.current,
                 {
                     opacity: 0,
                 },

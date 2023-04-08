@@ -1,5 +1,9 @@
 // Add Task Button
 .add-btn {
+	position: relative;
+	top: 200px;
+	margin: 0 auto;
+	grid-area: tasks;
 	width: 55px;
 	height: 55px;
 	border-radius: 50%;
