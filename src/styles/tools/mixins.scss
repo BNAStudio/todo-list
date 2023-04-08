@@ -1,3 +1,63 @@
+@mixin gradient_border(
+	$gradient_color_1,
+	$gradient_color_2,
+	$gradient_color_3
+) {
+	$gradient-colors: $gradient_color_1, $gradient_color_2, $gradient_color_3;
+	$gradient-positions: 0%, 100%;
+	$gradient-sizes: 32px 32px, calc(100% - 64px) 2px, 32px 32px,
+		2px calc(100% - 64px);
+	$gradient-positions-x: left, center, right, right, right, center, left, left;
+	$gradient-positions-y: top, top, top, center, bottom, bottom, bottom, center;
+	$gradient-directions: to right, to bottom, to left, to top;
+	background-image: radial-gradient(
+			circle at 100% 100%,
+			transparent 30px,
+			$gradient_color_1 30px,
+			$gradient_color_1 32px,
+			transparent 32px
+		),
+		linear-gradient(to right, $gradient_color_1, $gradient_color_2),
+		radial-gradient(
+			circle at 0% 100%,
+			transparent 30px,
+			$gradient_color_2 30px,
+			$gradient_color_2 32px,
+			transparent 32px
+		),
+		linear-gradient(to bottom, $gradient_color_2, $gradient_color_2),
+		radial-gradient(
+			circle at 0% 0%,
+			transparent 30px,
+			$gradient_color_2 30px,
+			$gradient_color_2 32px,
+			transparent 32px
+		),
+		linear-gradient(to left, $gradient_color_2, $gradient_color_1),
+		radial-gradient(
+			circle at 100% 0%,
+			transparent 30px,
+			$gradient_color_1 30px,
+			$gradient_color_1 32px,
+			transparent 32px
+		),
+		linear-gradient(to top, $gradient_color_1, $gradient_color_1);
+	background-size: 32px 32px, calc(100% - 64px) 2px, 32px 32px,
+		2px calc(100% - 64px);
+	background-position: top left, top center, top right, center right,
+		bottom right, bottom center, bottom left, center left;
+	background-repeat: no-repeat;
+}
+
+@mixin neumorphism_A() {
+	background: linear-gradient(145deg, #1a1a1a, #161616);
+	box-shadow: 4px 4px 9px #0a0a0a, -4px -4px 9px #262626;
+}
+@mixin neumorphism_B() {
+	background: #181818;
+	box-shadow: inset 4px 4px 9px #0a0a0a, inset -4px -4px 9px #262626;
+}
+
 @mixin glass_effect() {
 	background: rgba(2, 6, 8, 0.65);
 	box-shadow: 0 8px 32px 0 var(--light);
@@ -79,21 +139,3 @@
 		}
 	}
 }
-
-/*
-.main-title {
-	@include text_style(h1, var(--light));
-}
-.sub-title {
-	@include text_style(h2, var(--light));
-}
-.text-bold {
-	@include text_style(h3, var(--light));
-}
-.paragraph {
-	@include text_style(p, var(--light));
-}
-.tag-selector {
-	@include tag_selector(var(--alert));
-}
-*/

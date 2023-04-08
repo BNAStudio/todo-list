@@ -9,67 +9,94 @@
 	min-width: 300px;
 	height: 150px;
 	margin: 20px 0;
-}
 
-.card {
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	align-content: space-between;
-	gap: 5px;
-	border-radius: 15px;
-}
+	.card {
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+		align-content: space-between;
+		// gap: 8px;
+		border-radius: 15px;
+	}
 
-.progress-card {
-	justify-content: center;
-	display: flex;
-	width: 55%;
-	min-width: 150px;
-	height: 100%;
-	padding: 10px;
-	border: 1px solid var(--complementary);
-}
-.progress-card p:nth-child(1),
-.progress-card p:nth-child(3) {
-	width: 100%;
-	@include font_color--gradient(gradient_blue);
-	@include text_style(h3, var(--light));
-}
-.progress-card p:nth-child(1) {
-	text-align: left;
-}
-.progress-card p:nth-child(2) {
-	@include text_style(h1, var(--light));
-	font-size: 60px;
-	font-weight: 600;
-	text-align: center;
-}
-.progress-card p:nth-child(3) {
-	text-align: right;
-}
+	/*--- Progress card ---*/
+	.progress-card {
+		justify-content: center;
+		display: flex;
+		width: 55%;
+		min-width: 150px;
+		height: 100%;
+		padding: 20px;
+		// border: 1px solid var(--complementary);
+		background: none;
+		border: none;
+		gap: 3px;
+		@include gradient_border(
+			var(--gradient-dark-blue),
+			var(--gradient-mid-blue),
+			var(--gradient-light-blue)
+		);
+	}
+	& p:nth-child(1),
+	& p:nth-child(3) {
+		width: 100%;
+		@include font_color--gradient(gradient_blue);
+		@include text_style(h3, var(--light));
+	}
+	& p:nth-child(1) {
+		text-align: left;
+	}
+	& p:nth-child(2) {
+		@include text_style(h1, var(--light));
+		font-size: 60px;
+		font-weight: 600;
+		text-align: center;
+	}
+	& p:nth-child(3) {
+		text-align: right;
+	}
 
-.goals-card {
-	border: 1px solid var(--secundary-hover);
-	min-width: 100px;
-	width: 40%;
-	height: 100%;
-}
+	/*--- Goals card ---*/
+	.goals-card {
+		background: var(--dark);
+		min-width: 100px;
+		width: 40%;
+		height: 100%;
+		box-shadow: var(--box-shadow-soft);
+		transition: box-shadow 700ms;
+		gap: 8px;
+	}
+	.c-btn {
+		display: flex;
+		column-gap: 15px;
+		align-items: center;
+		justify-content: center;
+		width: 80%;
+	}
+	.label-btn {
+		width: 90%;
+		font-family: var(--font-raleway);
+		font-size: 0.85rem;
+		color: var(--light);
+		cursor: pointer;
+	}
+	.add-label-btn {
+		color: var(--contrast);
+	}
 
-.c-btn {
-	display: flex;
-	column-gap: 5px;
-	align-items: center;
-	justify-content: center;
-	width: 80%;
-}
-
-.label-btn {
-	width: 90%;
-}
-
-.btn {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+	.btn {
+		width: 35px;
+		height: 35px;
+		cursor: pointer;
+		border-radius: 50%;
+		border: 1px solid transparent;
+		@include neumorphism_A;
+		&:active {
+			@include neumorphism_B;
+		}
+		&:active label {
+			color: red;
+		}
+	}
 }
