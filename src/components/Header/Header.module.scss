@@ -1,0 +1,36 @@
+@import "../../styles/tools/mixins";
+
+.c-header {
+	grid-area: header;
+	display: flex;
+	width: 100%;
+	height: 80px;
+	justify-content: space-between;
+}
+
+.c-title {
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	gap: 5%;
+	margin: 5px 0;
+	width: 100%;
+	// border: 1px solid blue;
+}
+
+.sub-titles {
+	@include text_style(p, var(--light));
+}
+
+.profile-img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 65px;
+	height: 65px;
+	margin: 5px 0;
+	border: 2px solid var(--dark-blue);
+	border-radius: 50%;
+	box-shadow: 0 0 20px var(--dark-blue-light);
+	object-fit: cover;
+}

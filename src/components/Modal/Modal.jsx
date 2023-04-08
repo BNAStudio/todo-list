@@ -11,7 +11,7 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
     const closeIconRef = useRef();
     const modalRef = useRef();
 
-    // Todo: Es necesario ejecutar FILTERED_TASK al cerrar el modal, para poder eliminar el ultimo elemento filtrado
+    // TODO: Es necesario ejecutar FILTERED_TASK al cerrar el modal, para poder eliminar el ultimo elemento filtrado
     const clearFilteredTask = () => {
         onClose()
     }
@@ -26,7 +26,7 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
                 onComplete: clearFilteredTask
             }
         )
-        // TODO: Crear animacion para mobile
+
     }
 
     if (!isOpen) return null;
@@ -49,3 +49,4 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
 
 // TODO: Crear los estilos en SASS
 // TODO: Animar la transicion del modal al desaparecer
+// TODO: Crear animacion para mobile y desktop

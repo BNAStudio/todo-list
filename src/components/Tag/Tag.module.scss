@@ -15,7 +15,6 @@
 		p {
 			transform: scale(1.1);
 			color: var(--light);
-			opacity: 0.5;
 		}
 	}
 }
@@ -33,23 +32,18 @@
 
 .c-tag--message {
 	@include text_style(h3, var(--light));
-	opacity: 0.5;
 }
 .c-tag--due {
 	@include text_style(p, var(--alert));
-	opacity: 0.5;
 }
 .c-tag--today {
 	@include text_style(p, var(--contrast));
-	opacity: 0.5;
 }
 .c-tag--tomorrow {
 	@include text_style(p, var(--primary-hover));
-	opacity: 0.5;
 }
 .c-tag--soon {
 	@include text_style(p, var(--complementary));
-	opacity: 0.5;
 }
 
 .c-tag--message:first-letter {
