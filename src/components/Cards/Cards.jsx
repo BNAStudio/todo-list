@@ -12,18 +12,18 @@ export const Cards = () => {
             <div className={`${css.card} ${css["goals-card"]}`}>
                 <div className={css["c-btn"]}>
                     <button
-                        id="add-goal-btn"
                         className={css.btn}
+                        id="add-goal-btn"
                     ></button>
                     <label
-                        className={css["label-btn"]}
-                        htmlFor="add-goal-btn">Add a goal</label>
+                        className={`${css["label-btn"]} ${css["add-label-btn"]}`}
+                        htmlFor="add-goal-btn">Add goal</label>
                 </div>
 
                 <div className={css["c-btn"]}>
                     <button
-                        id="your-goals"
                         className={css.btn}
+                        id="your-goals"
                     ></button>
                     <label
                         className={css["label-btn"]}
@@ -32,8 +32,8 @@ export const Cards = () => {
 
                 <div className={css["c-btn"]}>
                     <button
-                        id="recicle"
                         className={css.btn}
+                        id="recicle"
                     ></button>
                     <label
                         className={css["label-btn"]}
