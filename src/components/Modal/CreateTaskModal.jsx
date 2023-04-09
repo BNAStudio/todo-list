@@ -2,8 +2,8 @@ import { useState, useContext, useEffect } from 'react';
 import { TaskContext } from '../../context/TaskContext';
 import { TYPES } from '../../actions/taskActions'
 import { ID, CALC_DAYS, CALC_TAG } from '../../constants/constants';
-import css from './Modal.module.scss'
 import { Tag } from '../Tag/Tag';
+import css from './Modal.module.scss'
 
 export const CreateTaskModal = () => {
     const [form, setForm] = useState({});
@@ -40,8 +40,9 @@ export const CreateTaskModal = () => {
         <>
             <Tag tag={handleTagTitle()} isIcon />
 
-
-            {form.start && form.end && <p>The issue have a duration of: {days} </p>}
+            <article className={css["duration-message"]}>
+                {form.start && form.end && <p>Duration: {days} days</p>}
+            </article>
 
             <form
                 className={css["c-form"]}
@@ -89,8 +90,10 @@ export const CreateTaskModal = () => {
                 />
 
                 {/* SUBMIT BTN */}
-                <button type="submit" value="create issue">Create</button>
-                <button type="reset" onClick={resetForm}>Clear</button>
+                <div className={css["c-btns"]}>
+                    <button className={`${css.btn} ${css["btn-create"]}`} type="submit" value="create issue">C</button>
+                    <button className={`${css.btn} ${css["btn-clear"]}`} type="reset" onClick={resetForm}>CL</button>
+                </div>
             </form>
         </>
     )

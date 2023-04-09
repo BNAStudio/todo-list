@@ -14,8 +14,8 @@ export const AddTaskBtn = () => {
     }
 
     return (
-        <>
+        <div className={css["c-btn"]}>
             <button onClick={onHandleCreate} className={css["add-btn"]}>+</button>
-        </>
+        </div>
     )
 }

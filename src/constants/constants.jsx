@@ -9,13 +9,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 // date format: 2023-04-08
 
-const WEEK_DAYS = ["Monday", "Thursday", "Wendsday", "Tuesday", "Fryday", "Saturday", "Sunday"];
+const WEEK_DAYS = [ "Sunday", "Monday", "Thursday", "Wendsday", "Tuesday", "Fryday", "Saturday"];
 
 export const DATE = new Date();
 export const TODAY = DATE.getDay();
-export const WEEK_DAY = WEEK_DAYS[TODAY - 1]
+export const WEEK_DAY = TODAY - 1 < 0 ? WEEK_DAYS[0] : WEEK_DAYS[TODAY - 1]
 export const MONTH = DATE.getMonth() + 1;
 export const YEAR = DATE.getFullYear();
+
 
 export const TAG_DAYS = {
 	message: "msg",

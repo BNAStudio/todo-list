@@ -18,12 +18,6 @@
 	display: flex;
 	flex-flow: wrap;
 	justify-content: center;
-	align-items: center;
-	align-content: space-around;
-	padding: 50px 0;
-	gap: 10px;
-	margin: 0 auto;
-	border-radius: 40px;
 }
 
 .close-modal-btn {
@@ -43,6 +37,15 @@
 }
 .close-modal-btn > svg:hover {
 	color: var(--complementary-hover);
+}
+
+.duration-message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100px;
+	@include text_style(h3, var(--light));
 }
 
 /*--- create modal ---*/
@@ -69,13 +72,47 @@
 	max-width: 100px;
 }
 .input {
-	background: var(--input-gradient);
-	font-size: 1.2rem;
+	/*background: var(--input-gradient);*/
+	@include text_style(p, var(--light));
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid var(--complementary-hover);
 	width: 90%;
 	height: 45px;
-	border: none;
 	padding: 0 10px;
 	border-radius: 3px;
+	color: var(--complementary-hover);
+}
 
-	@include text_style(p, var(--light));
+/*--- Modal Buttons ---*/
+
+.c-btns {
+	width: 120px;
+	height: 60px;
+	background: var(--dark);
+	box-shadow: var(--box-shadow-soft);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 10px;
+	margin: 20px 0;
+}
+.btn {
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	border: 1px solid transparent;
+	color: var(--light);
+	@include neumorphism_A;
+	&:active {
+		@include neumorphism_B;
+		color: var(--light);
+	}
+}
+.btn-create {
+	color: var(--complementary-hover);
+}
+.btn-clear {
+	color: var(--contrast);
 }
