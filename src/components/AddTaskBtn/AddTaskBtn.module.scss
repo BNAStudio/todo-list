@@ -1,9 +1,23 @@
+@import "../../styles/tools/mixins.scss";
 // Add Task Button
-.add-btn {
+.c-btn {
+	grid-area: tasks;
 	position: relative;
 	top: 200px;
+	width: 120px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	box-shadow: var(--box-shadow-soft);
 	margin: 0 auto;
-	grid-area: tasks;
+	background: var(--dark);
+	border: 3px solid rgb(20, 20, 20);
+}
+
+.add-btn {
+	margin: 0 auto;
 	width: 55px;
 	height: 55px;
 	border-radius: 50%;
@@ -14,8 +28,9 @@
 	background: var(--medium-dark);
 	border: 1px solid transparent;
 	cursor: pointer;
-	transition: all 350ms;
-	&:hover {
+	@include neumorphism_A;
+	&:active {
+		@include neumorphism_B;
 		color: var(--complementary-hover);
 		transform: scale(1.05);
 	}

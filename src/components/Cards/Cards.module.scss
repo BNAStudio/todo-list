@@ -4,11 +4,11 @@
 	grid-area: cards;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-end;
 	width: 100%;
 	min-width: 300px;
 	height: 150px;
-	margin: 20px 0;
+	margin: 10px 0;
 
 	.card {
 		display: flex;
@@ -16,8 +16,9 @@
 		justify-content: center;
 		align-items: center;
 		align-content: space-between;
-		// gap: 8px;
 		border-radius: 15px;
+		font-family: var(--font-raleway);
+		padding: 10px;
 	}
 
 	/*--- Progress card ---*/
@@ -28,14 +29,12 @@
 		min-width: 150px;
 		height: 100%;
 		padding: 20px;
-		// border: 1px solid var(--complementary);
 		background: none;
 		border: none;
 		gap: 3px;
 		@include gradient_border(
 			var(--gradient-dark-blue),
-			var(--gradient-mid-blue),
-			var(--gradient-light-blue)
+			var(--gradient-mid-blue)
 		);
 	}
 	& p:nth-child(1),
@@ -65,24 +64,28 @@
 		height: 100%;
 		box-shadow: var(--box-shadow-soft);
 		transition: box-shadow 700ms;
-		gap: 8px;
+		gap: 15px;
+		height: 225px;
+		border: 3px solid rgb(20, 20, 20);
 	}
 	.c-btn {
 		display: flex;
-		column-gap: 15px;
-		align-items: center;
-		justify-content: center;
-		width: 80%;
+		width: 100%;	
 	}
 	.label-btn {
-		width: 90%;
-		font-family: var(--font-raleway);
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		width: 70%;
 		font-size: 0.85rem;
 		color: var(--light);
-		cursor: pointer;
+		text-shadow: var(--text-shadow);
 	}
 	.add-label-btn {
-		color: var(--contrast);
+		color: var(--primary-hover);
+		display: flex;
+		align-items: center;
+		width: 80%;
 	}
 
 	.btn {
@@ -91,12 +94,13 @@
 		cursor: pointer;
 		border-radius: 50%;
 		border: 1px solid transparent;
+		margin-right: 10px;
 		@include neumorphism_A;
 		&:active {
 			@include neumorphism_B;
 		}
-		&:active label {
-			color: red;
+		&:active + .label-btn {
+			color: var(--contrast);
 		}
 	}
 }

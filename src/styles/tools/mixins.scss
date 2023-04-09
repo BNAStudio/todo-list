@@ -1,15 +1,4 @@
-@mixin gradient_border(
-	$gradient_color_1,
-	$gradient_color_2,
-	$gradient_color_3
-) {
-	$gradient-colors: $gradient_color_1, $gradient_color_2, $gradient_color_3;
-	$gradient-positions: 0%, 100%;
-	$gradient-sizes: 32px 32px, calc(100% - 64px) 2px, 32px 32px,
-		2px calc(100% - 64px);
-	$gradient-positions-x: left, center, right, right, right, center, left, left;
-	$gradient-positions-y: top, top, top, center, bottom, bottom, bottom, center;
-	$gradient-directions: to right, to bottom, to left, to top;
+@mixin gradient_border($gradient_color_1, $gradient_color_2) {
 	background-image: radial-gradient(
 			circle at 100% 100%,
 			transparent 30px,
@@ -42,74 +31,16 @@
 			transparent 32px
 		),
 		linear-gradient(to top, $gradient_color_1, $gradient_color_1);
-	background-size: 32px 32px, calc(100% - 64px) 2px, 32px 32px,
-		2px calc(100% - 64px);
+	/*
+		
+		*/
 	background-position: top left, top center, top right, center right,
 		bottom right, bottom center, bottom left, center left;
+	background-size: 32px 32px, calc(100% - 64px) 2px, 32px 32px,
+		2px calc(100% - 64px);
+
 	background-repeat: no-repeat;
 }
-
-@mixin neumorphism_A() {
-	background: linear-gradient(145deg, #1a1a1a, #161616);
-	box-shadow: 4px 4px 9px #0a0a0a, -4px -4px 9px #262626;
-}
-@mixin neumorphism_B() {
-	background: #181818;
-	box-shadow: inset 4px 4px 9px #0a0a0a, inset -4px -4px 9px #262626;
-}
-
-@mixin glass_effect() {
-	background: rgba(2, 6, 8, 0.65);
-	box-shadow: 0 8px 32px 0 var(--light);
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(8px);
-	border-radius: 10px;
-	border: 1px solid rgba(105, 188, 255, 0.125);
-}
-
-@mixin font_color--gradient($gradient) {
-	font-family: var(--font-roboto);
-	text-shadow: var(--text-shadow);
-	font-size: max(12px, min(var(--font-size-xl), 27vw));
-	@if $gradient == gradient_purple {
-		color: var(--primary);
-		background: var(--purple-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	} @else if $gradient == gradient_blue {
-		color: var(--complementary);
-		background: var(--blue-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-}
-
-@mixin tag_selector($color) {
-	background: var(--medium-dark);
-	width: max-content;
-	color: $color;
-	padding: 5px 10px;
-	font-family: var(--font-raleway);
-	border-radius: 5px;
-}
-
-@mixin text_style($size, $color) {
-	font-family: var(--font-raleway);
-	color: $color;
-	@if $size == h1 {
-		font-size: var(--font-size-l);
-		font-weight: 400;
-	} @else if $size == h2 {
-		font-size: var(--font-size-m);
-	} @else if $size == h3 {
-		font-size: var(--font-size-s);
-		font-weight: 400;
-	} @else if $size == p {
-		font-size: var(--font-size-xs);
-		font-weight: 400;
-	}
-}
-
 @mixin gradient_border-animation {
 	--border-size: 1px;
 	background-image: conic-gradient(
@@ -137,5 +68,64 @@
 		to {
 			--border-angle: 1turn;
 		}
+	}
+}
+
+@mixin neumorphism_A() {
+	background: linear-gradient(145deg, #1a1a1a, #161616);
+	box-shadow: 4px 4px 9px #0a0a0a, -4px -4px 9px #262626;
+}
+@mixin neumorphism_B() {
+	background: #181818;
+	box-shadow: inset 4px 4px 9px #0a0a0a, inset -4px -4px 9px #262626;
+}
+
+@mixin glass_effect() {
+	background: rgba(2, 6, 8, 0.65);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border-radius: 10px;
+	border: 1px solid rgba(105, 188, 255, 0.125);
+}
+
+@mixin tag_selector($color) {
+	background: var(--medium-dark);
+	width: max-content;
+	color: $color;
+	padding: 5px 10px;
+	font-family: var(--font-raleway);
+	border-radius: 5px;
+}
+
+@mixin text_style($size, $color) {
+	font-family: var(--font-raleway);
+	color: $color;
+	@if $size == h1 {
+		font-size: var(--font-size-l);
+		font-weight: 400;
+	} @else if $size == h2 {
+		font-size: var(--font-size-m);
+	} @else if $size == h3 {
+		font-size: var(--font-size-s);
+		font-weight: 400;
+	} @else if $size == p {
+		font-size: var(--font-size-xs);
+		font-weight: 400;
+	}
+}
+@mixin font_color--gradient($gradient) {
+	font-family: var(--font-roboto);
+	text-shadow: var(--text-shadow);
+	font-size: max(12px, min(var(--font-size-xl), 27vw));
+	@if $gradient == gradient_purple {
+		color: var(--primary);
+		background: var(--purple-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	} @else if $gradient == gradient_blue {
+		color: var(--complementary);
+		background: var(--blue-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 }

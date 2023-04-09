@@ -1,4 +1,5 @@
 @import "../../styles/index.scss";
+@import "../../styles/tools/mixins.scss";
 
 .form {
 	gap: 10px;
@@ -14,26 +15,33 @@
 	align-items: center;
 	width: 100%;
 	height: max-content;
-	padding: 10px;
+	padding: 5px;
 	gap: 15px;
 	color: white;
 	border-radius: 10px;
 	transition: hover 1s;
+	margin: 10px 0;
+	border: 1px solid var(--medium-dark);
 	&:hover {
-		border: 1px solid var(--medium-dark);
+		border-radius: 5px;
+		border: 1px solid var(--dark-blue-light);
 		cursor: pointer;
 	}
 }
 
 .task__btn {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	background: var(--medium-dark);
 	@include text_style(p, var(--light));
 	border: 1px solid transparent;
 	box-shadow: var(--border-neu-left);
 	cursor: pointer;
+	@include neumorphism_A;
+	&:active {
+		@include neumorphism_B;
+	}
 }
 .task__btn--update {
 	color: var(--complementary-hover);
@@ -56,21 +64,36 @@
 	@include text_style(h3, var(--light));
 }
 
+.tasks {
+	height: 175px;
+}
+
 .c-taskList {
 	grid-area: tasks;
 	display: flex;
 	flex-flow: column;
 	gap: 10px;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	border-radius: 15px;
-	border: 1px solid var(--primary);
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 100%;
-	height: 190px;
+	height: 270px;
 	padding: 10px 5px;
-	margin: 0 auto;
+	margin: 10px auto;
+	/*@include glass_effect;*/
+}
+
+.c-btns {
+	width: 85px;
+	height: 40px;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: var(--dark);
+	border-radius: 5px;
 }
 
 // gradient_border-animation - custom property

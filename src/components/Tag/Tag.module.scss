@@ -4,10 +4,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 90%;
 
 	background: var(--medium-dark);
 	color: var(--light);
-	width: max-content;
 	padding: 5px;
 	border-radius: 5px;
 	&:hover {
@@ -19,31 +19,35 @@
 	}
 }
 
+
+
 .c-tag-icon {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	width: 90%;
-	height: max-content;
-	padding: 5px;
-	font-family: var(--font-raleway);
-	border-bottom: 2px solid var(--complementary);
+	margin: 0 auto;
+	text-align: center;
+	opacity: 0.65;
+	text-shadow: var(--text-shadow);
 }
 
 .c-tag--message {
 	@include text_style(h3, var(--light));
+	border-bottom: 2px solid var(--light);
 }
 .c-tag--due {
-	@include text_style(p, var(--alert));
+	@include text_style(h2, var(--alert));
+	border-bottom: 2px solid var(--alert);
 }
 .c-tag--today {
-	@include text_style(p, var(--contrast));
+	@include text_style(h2, var(--contrast));
+	border-bottom: 2px solid var(--contrast);
 }
 .c-tag--tomorrow {
-	@include text_style(p, var(--primary-hover));
+	@include text_style(h2, var(--primary-hover));
+	border-bottom: 2px solid var(--primary-hover);
 }
 .c-tag--soon {
-	@include text_style(p, var(--complementary));
+	@include text_style(h2, var(--complementary));
+	border-bottom: 2px solid var(--complementary);
 }
 
 .c-tag--message:first-letter {
@@ -60,4 +64,9 @@
 }
 .c-tag--soon:first-letter {
 	text-transform: uppercase;
+}
+
+.tag {
+	font-size: 1rem;
+	border: none;
 }
