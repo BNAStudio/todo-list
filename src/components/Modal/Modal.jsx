@@ -1,12 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useRef } from 'react';
-import { CreateTaskModal, UpdateTaskModal } from './index';
+import { CreateTaskModal, UpdateTaskModal, DeleteTaskModal, DetailsTaskModal } from './index';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap";
 import css from './Modal.module.scss';
 
-export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) => {
+export const Modal = ({
+    isOpen,
+    onClose,
+    createTask,
+    updateTask,
+    deleteTask,
+    detailsTask }) => {
 
     const closeIconRef = useRef();
     const modalRef = useRef();
@@ -38,9 +44,11 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
                     onClick={onCloseHandle}>
                     <FontAwesomeIcon ref={closeIconRef} style={{ fontSize: "24px" }} icon={faXmark} />
                 </button>
+                {/* {createTask && <DetailsTaskModal />} */}
                 {createTask && <CreateTaskModal />}
                 {updateTask && <UpdateTaskModal />}
-                {deleteTask && <CreateTaskModal />}
+                {deleteTask && <DeleteTaskModal />}
+                {detailsTask && <DetailsTaskModal />}
             </div>
         </div>
     )

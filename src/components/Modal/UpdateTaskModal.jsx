@@ -1,10 +1,12 @@
 import { useState, useContext } from 'react';
 import { TaskContext } from '../../context/TaskContext';
+import { ModalContext } from '../../context/ModalContext';
 import { TYPES } from '../../actions/taskActions';
 import css from './Modal.module.scss'
 
 export const UpdateTaskModal = () => {
     const { state, dispatch } = useContext(TaskContext);
+    const { closeModal } = useContext(ModalContext);
     const [form, setForm] = useState(state.filteredTask);
 
     const handleChange = e => {
@@ -19,6 +21,7 @@ export const UpdateTaskModal = () => {
                 ...form
             }
         })
+        closeModal()
     };
 
     return (

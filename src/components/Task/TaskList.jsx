@@ -7,7 +7,6 @@ import css from './Task.module.scss'
 
 export const TaskList = () => {
     const { state } = useContext(TaskContext);
-    // console.log(state);
 
     // TODO: Crear funcionalidad para que los dias en el estado de cada tarea se actualice diariamente y actualice el tag con respecto al dia actual
 

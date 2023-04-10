@@ -17,7 +17,7 @@ export const Cards = () => {
                     ></button>
                     <label
                         className={`${css["label-btn"]} ${css["add-label-btn"]}`}
-                        htmlFor="add-goal-btn">Add goal</label>
+                        htmlFor="add-goal-btn">All your issues</label>
                 </div>
 
                 <div className={css["c-btn"]}>
@@ -27,7 +27,7 @@ export const Cards = () => {
                     ></button>
                     <label
                         className={css["label-btn"]}
-                        htmlFor="your-goals">Your goals</label>
+                        htmlFor="your-goals">Completed issues</label>
                 </div>
 
                 <div className={css["c-btn"]}>
@@ -37,7 +37,7 @@ export const Cards = () => {
                     ></button>
                     <label
                         className={css["label-btn"]}
-                        htmlFor="recicle">Recicle</label>
+                        htmlFor="recicle">Delete issues</label>
                 </div>
             </div>
         </div>

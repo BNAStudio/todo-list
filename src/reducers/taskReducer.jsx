@@ -14,12 +14,8 @@ export function taskReducer(state, action) {
 
         case TYPES.FILTERED_TASK:
             const filteredTask = state.tasks.filter(task => task.id === action.payload.id)[0];
-            return {
-                ...state,
-                filteredTask
-            };
+            return { ...state, filteredTask };
 
-            
         case TYPES.UPDATE_TASK:
             // recibe tarea actualizada
             const updateTask = action.payload;
@@ -33,16 +29,19 @@ export function taskReducer(state, action) {
         case TYPES.COMPLETED_TASK:
             const { id, isChecked } = action.payload;
             // Crea un nuevo arreglo agrega el atributo checked
-            const arr = state.tasks.map( task => {
-                if(task.id === id) return { ...task, checked: isChecked }
+            const arr = state.tasks.map(task => {
+                if (task.id === id) return { ...task, checked: isChecked }
                 return task
             })
             // Itera por el nuevo arreglo y filtra unicamente las que estan checked
-            const completedTasks = arr.filter( task => task.checked)
+            const completedTasks = arr.filter(task => task.checked)
             return { ...state, arr, completedTasks };
 
         case TYPES.DELETE_TASK:
-            return console.log(`delete task: ${state.task} ${state.id}`);
+            const deleteTaskID = action.payload;
+            const notDeleteTask = state.tasks.filter(task => task.id !== deleteTaskID)
+
+            return { ...state, tasks: notDeleteTask, filteredTask: {} };
 
         default:
             return state;

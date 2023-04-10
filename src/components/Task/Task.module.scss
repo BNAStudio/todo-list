@@ -7,6 +7,7 @@
 	/*padding: 0 10px;*/
 	font-family: var(--font-raleway);
 	font-size: var(--font-size-s);
+	cursor: pointer;
 }
 
 .c-task {
@@ -95,6 +96,13 @@
 	align-items: center;
 	background: var(--dark);
 	border-radius: 5px;
+}
+
+/*--- Details provisional ---*/
+.details {
+	width: 100px;
+	height: 100px;
+	background: red;
 }
 
 // gradient_border-animation - custom property
