@@ -20,12 +20,12 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
         setUpdateTask(true)
     }
 
-    const onPinTask = (e) => {
+    const onPinTask = ({target}) => {
         dispatch({
-            type: TYPES.CHECKED_TASK,
+            type: TYPES.COMPLETED_TASK,
             payload: {
                 id: taskId,
-                isChecked: e.target.checked
+                isChecked: target.checked
             }
         });
         console.log(state);
@@ -49,18 +49,18 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
                     onChange={onPinTask} />
                 <h3 className={css.task__title}>{taskTitle}</h3>
                 <Tag tag={tagAlert} />
-            <div className={css["c-btns"]}>
-                <button
-                    onClick={handleClick}
-                    className={`${css.task__btn} ${css["task__btn--update"]}`}>
-                    {ICONS.update}
-                </button>
-                <button
-                    onClick={onHandleDelete}
-                    className={`${css.task__btn} ${css["task__btn--delete"]}`}>
-                    {ICONS.delete}
-                </button>
-            </div>
+                <div className={css["c-btns"]}>
+                    <button
+                        onClick={handleClick}
+                        className={`${css.task__btn} ${css["task__btn--update"]}`}>
+                        {ICONS.update}
+                    </button>
+                    <button
+                        onClick={onHandleDelete}
+                        className={`${css.task__btn} ${css["task__btn--delete"]}`}>
+                        {ICONS.delete}
+                    </button>
+                </div>
             </label>
         </form >
     )
