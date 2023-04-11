@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { CreateTaskModal, UpdateTaskModal, DeleteTaskModal, DetailsTaskModal } from './index';
+import { TaskContext } from '../../context/TaskContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap";
 import css from './Modal.module.scss';
+import { TYPES } from '../../actions/taskActions';
 
 export const Modal = ({
     isOpen,
@@ -16,6 +18,7 @@ export const Modal = ({
 
     const closeIconRef = useRef();
     const modalRef = useRef();
+    const { dispatch } = useContext(TaskContext)
 
     // TODO: Es necesario ejecutar FILTERED_TASK al cerrar el modal, para poder eliminar el ultimo elemento filtrado
     const clearFilteredTask = () => {
@@ -32,6 +35,7 @@ export const Modal = ({
                 onComplete: clearFilteredTask
             }
         )
+        dispatch({ type: TYPES.RESET_FILTERED_TASK })
 
     }
 

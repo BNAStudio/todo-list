@@ -13,10 +13,6 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
     const { openModal, setUpdateTask, setDeleteTask, setDetailsTask } = useContext(ModalContext);
     const { dispatch } = useContext(TaskContext);
 
-// ! Se estan superponiendo el evento onClick del componente task y el evento onClick del boton update y el boton delete.
-
-// TODO: Es necesario revisar el event bubbling y los relatedTarget
-
     const handleDetails = (e) => {
         e.preventDefault();
         openModal()
@@ -24,18 +20,24 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
         setDetailsTask(true)
     }
 
+    // ! Se esta propagando el evento al check
+
     const hadleFilteredTask = e => {
         e.preventDefault();
+        // Restringe la propagacion del evento unicamente al elemento que ejecuta la accion
+        e.stopPropagation();
         const clickedBtn = e.currentTarget.dataset.btn
         openModal();
         dispatch({ type: TYPES.FILTERED_TASK, payload: { id: taskId } });
         clickedBtn === "update-btn" ? setUpdateTask(true) : setDeleteTask(true)
     }
 
-    const onPinTask = ({ target }) => {
+    const onPinTask = (e) => {
+        // Restringe la propagacion del evento unicamente al elemento que ejecuta la accion
+        e.stopPropagation()
         dispatch({
             type: TYPES.COMPLETED_TASK,
-            payload: { id: taskId, isChecked: target.checked }
+            payload: { id: taskId, isChecked: e.target.checked }
         });
     }
 
@@ -48,7 +50,10 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
                     type="checkbox"
                     className={css.task__checkbox}
                     name="checkbox"
-                    onChange={onPinTask} />
+                    // Ejecuta la funcion deseada, despues de detener la propagacion del evento
+                    onChange={onPinTask}
+                    // Detiene la propagacion del evento
+                    onClick={e => e.stopPropagation()} />
                 <h3 className={css.task__title}>{taskTitle}</h3>
                 <Tag tag={tagAlert} />
                 <div className={css["c-btns"]}>

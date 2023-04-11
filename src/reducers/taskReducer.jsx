@@ -5,12 +5,7 @@ export function taskReducer(state, action) {
     switch (action.type) {
 
         case TYPES.ADD_TASK:
-            return {
-                ...state,
-                tasks: [
-                    ...state.tasks, action.payload
-                ]
-            };
+            return { ...state, tasks: [...state.tasks, action.payload] };
 
         case TYPES.FILTERED_TASK:
             const filteredTask = state.tasks.filter(task => task.id === action.payload.id)[0];
@@ -19,7 +14,6 @@ export function taskReducer(state, action) {
         case TYPES.UPDATE_TASK:
             // recibe tarea actualizada
             const updateTask = action.payload;
-            // Itera por el estado, compara y agrega al estado principal la tarea actualizda
             const tasks = state.tasks.map(task => {
                 if (task.id === updateTask.id) return updateTask
                 return task
@@ -28,20 +22,31 @@ export function taskReducer(state, action) {
 
         case TYPES.COMPLETED_TASK:
             const { id, isChecked } = action.payload;
-            // Crea un nuevo arreglo agrega el atributo checked
             const arr = state.tasks.map(task => {
                 if (task.id === id) return { ...task, checked: isChecked }
                 return task
             })
-            // Itera por el nuevo arreglo y filtra unicamente las que estan checked
             const completedTasks = arr.filter(task => task.checked)
-            return { ...state, arr, completedTasks };
+            return { ...state, tasks: arr, completedTasks };
 
+        // TODO: Agregar la fecha actual y la hora cuando se elimina
         case TYPES.DELETE_TASK:
             const deleteTaskID = action.payload;
-            const notDeleteTask = state.tasks.filter(task => task.id !== deleteTaskID)
+            const updateTasks = state.tasks.filter(task => task.id !== deleteTaskID)
+            const deletedTasks = state.tasks.filter(task => task.id === deleteTaskID)
+            // Verifica si recicledTasks es una lista, en caso que no, asigna una vacia
+            // con el spread se abre la lista y se concatena con deletedTasks
+            const recicledTasks = [...(state.recicledTasks || []), ...deletedTasks]
+            return {
+                ...state,
+                tasks: updateTasks,
+                recicledTasks,
+                filteredTask: {}
+            };
 
-            return { ...state, tasks: notDeleteTask, filteredTask: {} };
+        case TYPES.RESET_FILTERED_TASK:
+            const resetfilteredTask = {};
+            return { ...state, filteredTask: resetfilteredTask };
 
         default:
             return state;
