@@ -1,15 +1,24 @@
 /* eslint-disable react/prop-types */
-import { useRef } from 'react';
-import { CreateTaskModal, UpdateTaskModal } from './index';
+import { useContext, useRef } from 'react';
+import { CreateTaskModal, UpdateTaskModal, DeleteTaskModal, DetailsTaskModal } from './index';
+import { TaskContext } from '../../context/TaskContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap";
 import css from './Modal.module.scss';
+import { TYPES } from '../../actions/taskActions';
 
-export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) => {
+export const Modal = ({
+    isOpen,
+    onClose,
+    createTask,
+    updateTask,
+    deleteTask,
+    detailsTask }) => {
 
     const closeIconRef = useRef();
     const modalRef = useRef();
+    const { dispatch } = useContext(TaskContext)
 
     // TODO: Es necesario ejecutar FILTERED_TASK al cerrar el modal, para poder eliminar el ultimo elemento filtrado
     const clearFilteredTask = () => {
@@ -26,6 +35,7 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
                 onComplete: clearFilteredTask
             }
         )
+        dispatch({ type: TYPES.RESET_FILTERED_TASK })
 
     }
 
@@ -38,9 +48,11 @@ export const Modal = ({ isOpen, onClose, createTask, updateTask, deleteTask }) =
                     onClick={onCloseHandle}>
                     <FontAwesomeIcon ref={closeIconRef} style={{ fontSize: "24px" }} icon={faXmark} />
                 </button>
+                {/* {createTask && <DetailsTaskModal />} */}
                 {createTask && <CreateTaskModal />}
                 {updateTask && <UpdateTaskModal />}
-                {deleteTask && <CreateTaskModal />}
+                {deleteTask && <DeleteTaskModal />}
+                {detailsTask && <DetailsTaskModal />}
             </div>
         </div>
     )

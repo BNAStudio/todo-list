@@ -4,9 +4,10 @@
 .form {
 	gap: 10px;
 	width: 100%;
-	padding: 0 10px;
+	/*padding: 0 10px;*/
 	font-family: var(--font-raleway);
 	font-size: var(--font-size-s);
+	cursor: pointer;
 }
 
 .c-task {
@@ -66,6 +67,7 @@
 
 .tasks {
 	height: 175px;
+	width: 100%;
 }
 
 .c-taskList {
@@ -80,7 +82,7 @@
 	overflow-x: hidden;
 	width: 100%;
 	height: 270px;
-	padding: 10px 5px;
+	padding: 10px 0;
 	margin: 10px auto;
 	/*@include glass_effect;*/
 }
@@ -94,6 +96,13 @@
 	align-items: center;
 	background: var(--dark);
 	border-radius: 5px;
+}
+
+/*--- Details provisional ---*/
+.details {
+	width: 100px;
+	height: 100px;
+	background: red;
 }
 
 // gradient_border-animation - custom property

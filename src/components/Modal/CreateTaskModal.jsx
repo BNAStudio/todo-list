@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { TaskContext } from '../../context/TaskContext';
+import { ModalContext } from '../../context/ModalContext';
 import { TYPES } from '../../actions/taskActions'
 import { ID, CALC_DAYS, CALC_TAG } from '../../constants/constants';
 import { Tag } from '../Tag/Tag';
@@ -10,6 +11,7 @@ export const CreateTaskModal = () => {
     const [days, setDays] = useState(0)
 
     const { dispatch } = useContext(TaskContext);
+    const { closeModal } = useContext(ModalContext);
 
     const handleTagTitle = () => {
         const days = CALC_DAYS(form.start, form.end)
@@ -23,7 +25,16 @@ export const CreateTaskModal = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const newId = ID.newId();
-        dispatch({ type: TYPES.ADD_TASK, payload: { ...form, id: newId, days, tag: CALC_TAG(days) } })
+        dispatch({
+            type: TYPES.ADD_TASK,
+            payload: {
+                ...form,
+                id: newId,
+                days,
+                tag: CALC_TAG(days)
+            }
+        })
+        closeModal()
     }
 
     const handleDate = e => {
