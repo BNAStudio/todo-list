@@ -10,8 +10,6 @@ export const DeleteTaskModal = () => {
     const { closeModal } = useContext(ModalContext);
     const id = state.filteredTask.id
 
-    console.log(state.filteredTask);
-
     const handleDelete = (e) => {
         e.preventDefault()
         dispatch({

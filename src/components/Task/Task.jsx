@@ -20,8 +20,6 @@ export const Task = ({ tagAlert, taskId, taskTitle }) => {
         setDetailsTask(true)
     }
 
-    // ! Se esta propagando el evento al check
-
     const hadleFilteredTask = e => {
         e.preventDefault();
         // Restringe la propagacion del evento unicamente al elemento que ejecuta la accion

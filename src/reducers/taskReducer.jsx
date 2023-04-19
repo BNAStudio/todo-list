@@ -1,8 +1,12 @@
 /* eslint-disable no-case-declarations */
 import { TYPES } from "../actions/taskActions";
+import { CURRENT_DAY, CALC_DAYS, CALC_TAG } from "../constants/constants";
 
-export function taskReducer(state, action) {
+export function TaskReducer(state, action) {
     switch (action.type) {
+
+        // TODO: Crear una accion para actualizar el tag y los dias restantes
+        // !: Definir en donde se implementara la accion 
 
         case TYPES.ADD_TASK:
             return { ...state, tasks: [...state.tasks, action.payload] };
@@ -47,6 +51,18 @@ export function taskReducer(state, action) {
         case TYPES.RESET_FILTERED_TASK:
             const resetfilteredTask = {};
             return { ...state, filteredTask: resetfilteredTask };
+
+        // ! Revisar la accion por no esta reescribiendo el estado
+        case TYPES.UPDATE_DATA_TASK:
+            // console.log(state.tasks);
+            const newState = state.tasks.map(item => {
+                const currentDay = CURRENT_DAY();
+                const remainingDays = CALC_DAYS(currentDay, item.end)
+                const newTag = CALC_TAG(remainingDays)
+                return { ...state, tag: newTag, days: remainingDays }
+            })
+            console.log(newState);
+            return { ...state, tasks: newState }
 
         default:
             return state;

@@ -1,0 +1,16 @@
+@import "../../styles/index.scss";
+
+.c-chart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid red;
+	width: 95%;
+	height: 200px;
+	border: 3px double var(--dark-blue);
+	border-radius: 10px;
+	transition: box-shadow 350ms;
+	margin: 30px 0;
+	@include text_style(h3, var(--light));
+	@include shiny_border(var(--dark-blue));
+}

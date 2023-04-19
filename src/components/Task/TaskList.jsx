@@ -26,6 +26,7 @@ export const TaskList = () => {
                             <p className={css["no-tasks__message"]}>No tienes tareas pendientes...</p>
                         </>
                 }
+
             </div>
         </div>
     )
