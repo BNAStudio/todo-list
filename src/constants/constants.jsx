@@ -17,15 +17,13 @@ export const ICONS = {
 };
 
 const WEEK_DAYS = ["Sunday", "Monday", "Thursday", "Wendsday", "Tuesday", "Fryday", "Saturday"];
+const MONTHS = ["January", "February", "March", "April", "December", "June", "July", "August", "September", "October", "November", "December"]
 
 export const DATE = new Date();
-export const TODAY = DATE.getDay();
-export const WEEK_DAY = TODAY - 1 < 0 ? WEEK_DAYS[0] : WEEK_DAYS[TODAY - 1]
+export const TODAY = DATE.getDate();
+export const WEEK_DAY = DATE.getDay() < 0 ? WEEK_DAYS[0] : WEEK_DAYS[DATE.getDay()]
 export const MONTH = DATE.getMonth() + 1;
 export const YEAR = DATE.getFullYear();
-
-// console.log(DATE.getDate()); // dia actual
-// console.log(TODAY); // ! retorna 0	
 
 
 export const TAG_DAYS = {
@@ -41,10 +39,9 @@ export const ID = {
 	newId: () => uuidv4()
 };
 
-// ! El dia esta retornando de manera incorrecta, es necesario revisar
+// TODO: Las funciones: CURRENT_DAY, CALC_DAYS, CALC_TAG, pueden convertirse en una clase
 export const CURRENT_DAY = () => {
 	const day = TODAY.toString().padStart(2, "0");
-	// console.log(TODAY); // ! Retorna 0
 	let month = MONTH.toString();
 	const year = YEAR.toString()
 	if (MONTH < 10) month = month.padStart(2, "0");
@@ -74,4 +71,25 @@ export const CALC_TAG = (days) => {
 		default:
 			return TAG_DAYS.message
 	}
+}
+// TODO: Mover esta funcion a UPDATE_TASK_TAG en ./taskReduver
+export const NEW_TAG = (state) => {
+	const updateTasks = state.tasks.map(item => {
+		const currentDay = CURRENT_DAY();
+		const remainingDays = CALC_DAYS(currentDay, item.end)
+		const newTag = CALC_TAG(remainingDays)
+		return { ...state, key: state.id, tag: newTag, days: remainingDays }
+	})
+	console.log(state);
+	return { state, tasks: updateTasks }
+}
+
+/**
+ * @param {bool} isCut
+ * @returns First three letters from current month
+ */
+export const GET_MONTH = (date, isCut) => {
+	const regex = /-(\d{2})-/;
+	const month = parseInt(date.match(regex)[1]);
+	return isCut ? MONTHS[month].substring(0, 3) : MONTHS[month]
 }

@@ -48,6 +48,7 @@
     "prettier": "2.7.1",
     "prop-types": "^15.8.1",
     "react-draggable": "^4.4.5",
+    "recharts": "^2.5.0",
     "sass": "^1.58.3",
     "vite": "^3.1.0"
   },

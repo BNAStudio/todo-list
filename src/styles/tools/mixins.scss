@@ -129,3 +129,15 @@
 		-webkit-text-fill-color: transparent;
 	}
 }
+
+@mixin shiny_border($color){
+	transition: box-shadow 350ms;
+	border: 3px double $color;
+	box-shadow: var(--box-shadow-soft);
+	&:hover {
+		box-shadow: var(--box-shadow-hard);
+	}
+}
+
+
+/*Colapsar menu CTRL + k + 0*/

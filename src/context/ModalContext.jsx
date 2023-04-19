@@ -9,12 +9,13 @@ export const ModalContext = createContext();
 // Context component
 export const ModalProvider = ({ children }) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false); // !!! cambiar a FALSE 
 
     const [createTask, setAddTask] = useState(false);
     const [updateTask, setUpdateTask] = useState(false);
     const [deleteTask, setDeleteTask] = useState(false);
     const [detailsTask, setDetailsTask] = useState(false);
+    const [showGoals, setShowGoals] = useState(false); // !!! cambiar a FALSE 
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -26,9 +27,10 @@ export const ModalProvider = ({ children }) => {
         setUpdateTask(false)
         setDeleteTask(false)
         setDetailsTask(false)
+        setShowGoals(false)
     }
 
-    return (
+    return (    
         <ModalContext.Provider
             value={{
                 isModalOpen,
@@ -37,7 +39,8 @@ export const ModalProvider = ({ children }) => {
                 setAddTask,
                 setUpdateTask,
                 setDeleteTask,
-                setDetailsTask
+                setDetailsTask,
+                setShowGoals
             }}>
             {children}
             <Modal
@@ -47,6 +50,7 @@ export const ModalProvider = ({ children }) => {
                 updateTask={updateTask}
                 deleteTask={deleteTask}
                 detailsTask={detailsTask}
+                showGoals={showGoals}
             />
         </ModalContext.Provider>
     )

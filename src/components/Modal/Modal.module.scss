@@ -6,8 +6,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	height: 500px;
-	width: 350px;
+	height: 550px;
+	width: 400px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -72,7 +72,6 @@
 	max-width: 100px;
 }
 .input {
-	/*background: var(--input-gradient);*/
 	@include text_style(p, var(--light));
 	background: transparent;
 	border: none;
@@ -133,7 +132,6 @@
 }
 
 /*--- Modal Buttons ---*/
-
 .c-btns {
 	width: 120px;
 	height: 60px;
@@ -163,4 +161,16 @@
 }
 .btn-clear {
 	color: var(--contrast);
+}
+
+/*--- Show all issues MODAL ---*/
+.c-showGoals {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-flow: column;
+	width: 380px;
+	height: 500px;
+	color: var(--light);
+	/*border: 1px solid red*/
 }

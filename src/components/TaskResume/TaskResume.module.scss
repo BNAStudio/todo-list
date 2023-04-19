@@ -1,0 +1,30 @@
+/*--- Task resume ---*/
+@import "../../styles/index.scss";
+@import "../../styles/tools/mixins.scss";
+
+.circle {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 3px double var(--dark-blue);
+	box-shadow: var(--box-shadow-soft);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include text_style(h3, var(--light));
+	@include shiny_border(var(--dark-blue));
+}
+.task-resume {
+	display: flex;
+	width: 100%;
+	height: max-content;
+	margin: 20px 0 0;
+	justify-content: space-evenly;
+}
+.task-complete {
+}
+.task-inProgress {
+}
+.task-expire {
+	color: var(--contrast);
+}

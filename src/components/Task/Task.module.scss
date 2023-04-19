@@ -68,6 +68,20 @@
 .tasks {
 	height: 175px;
 	width: 100%;
+	padding-right: 3px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+}
+.tasks::-webkit-scrollbar {
+	background-color: transparent;
+	border: 1px solid var(--dark-blue);
+	border-radius: 10px;
+	width: 10px;
+}
+.tasks::-webkit-scrollbar-thumb {
+	background-color: var(--primary-hover);
+	border-radius: 10px;
 }
 
 .c-taskList {
@@ -96,18 +110,4 @@
 	align-items: center;
 	background: var(--dark);
 	border-radius: 5px;
-}
-
-/*--- Details provisional ---*/
-.details {
-	width: 100px;
-	height: 100px;
-	background: red;
-}
-
-// gradient_border-animation - custom property
-@property --border-angle {
-	syntax: "<angle>";
-	inherits: true;
-	initial-value: 0turn;
 }
