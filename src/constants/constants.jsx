@@ -16,7 +16,16 @@ export const ICONS = {
 	close: <FontAwesomeIcon id="icon-close" fixedWidth icon={faXmark} />
 };
 
-const WEEK_DAYS = ["Sunday", "Monday", "Thursday", "Wendsday", "Tuesday", "Fryday", "Saturday"];
+// const WEEK_DAYS = Object.freeze({
+// 	'SUNDAY': Symbol("Sunday"),
+// 	'MONDAY': Symbol("Monday"),
+// 	'THURSDAY': Symbol("Thursday"),
+// 	'WENDSDAY': Symbol("Wendsday"),
+// 	'TUESDAY': Symbol("Tuesday"),
+// 	'FRIDAY': Symbol("Friday"),
+// 	'SATURDAY': Symbol("Saturday"),
+// })
+const WEEK_DAYS = ["Sunday", "Monday", "Thursday", "Wendsday", "Tuesday", "Friday", "Saturday"];
 const MONTHS = ["January", "February", "March", "April", "December", "June", "July", "August", "September", "October", "November", "December"]
 
 export const DATE = new Date();
